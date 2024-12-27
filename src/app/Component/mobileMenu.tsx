@@ -43,25 +43,25 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
 
     return(
         <div
-            className={`${openMenu? 'block':'hidden'} absolute lg:hidden w-[100vw] h-[100vh] top-[7rem] left-0 animate-pull-down`}
+            className={`${openMenu? 'block':'hidden'} absolute z-50 lg:hidden w-[100%] top-[7rem] left-0 animate-pull-down`}
         >
             <div
                 className="text-center capitalize text-2xl text-white flex flex-col items-center justify-between"
             >
                 <Link
-                    className={`${pathname === '/'? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
+                    className={`${pathname === '/'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                     href='/'
                 >
                     home
                 </Link>
                 <Link
-                    className={`${pathname === '/about'? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
+                    className={`${pathname === '/about'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                     href='/about'
                 >
                     about
                 </Link>
                 <div
-                    className={` ${drop? 'font-bold' : 'font-normal'} relative flex items-center justify-center gap-6 border-b border-[#b0acac25] bg-[#060505c5] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
+                    className={` ${drop? 'font-bold' : 'font-normal'} relative flex items-center justify-center gap-6 border-b border-[#b0acac25] bg-[#060505f6] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
                 >
                     <span>
                         category
@@ -79,7 +79,7 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                     {
                         categories.map((category)=>(
                             <Link
-                                className={`${pathname === category.link ? 'text-primaryColor' : 'text-white'} bg-[#060505b5] border-b border-[#b0acac20] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
+                                className={`${pathname === category.link ? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac20] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                                 href={category.link}
                                 key={category.id}
                             >
@@ -89,13 +89,13 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                     }
                 </div>
                 <Link
-                    className={`${pathname === '/contact'? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
+                    className={`${pathname === '/contact'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                     href='/contact'
                 >
                     contact
                 </Link>
                 <div
-                    className={`flex items-center justify-center gap-2 border-b border-[#b0acac25] bg-[#060505c5] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
+                    className={`flex items-center justify-center gap-2 border-b border-[#b0acac25] bg-[#060505f6] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
                 >
                     <label 
                         htmlFor="search"
@@ -115,7 +115,7 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                   
                 </div>
                 <div
-                    className={`flex items-center justify-center gap-2 border-b border-[#b0acac25] bg-[#060505c5] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
+                    className={`flex items-center justify-center gap-2 border-b border-[#b0acac25] bg-[#060505f6] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
                 >
                     {
                         medias.map((media) => (

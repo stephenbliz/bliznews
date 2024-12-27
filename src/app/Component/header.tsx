@@ -5,7 +5,7 @@ export default function Header(){
 
     return(
         <header
-            className="w-[100vw] h-fit border-b border-gray-300"
+            className="h-fit border-b border-gray-300"
         >
             <Nav1 />
             <Nav2 />
