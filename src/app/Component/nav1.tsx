@@ -64,7 +64,7 @@ export default function Nav1(){
                         <MdOutlineArrowDropDownCircle />
                     </span>
                     <div
-                        className=" absolute hidden group-hover:block top-[1rem] animate-slide-in"
+                        className=" absolute hidden group-hover:block z-50 top-[1rem] animate-slide-in"
                     >
                         <div
                             className="absolute top-[3.5rem] left-0 border bg-white border-gray-300 "

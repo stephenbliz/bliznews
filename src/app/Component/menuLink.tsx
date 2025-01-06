@@ -43,7 +43,7 @@ export default function MenuLinks(){
                     </span>
                 </div>
                 <div
-                    className="absolute w-[20vw] hidden group-hover:block top-[4rem] rounded-sm z-50 px-4 border border-secondaryColor-100  bg-white animate-slide-in"
+                    className="absolute w-[20vw] hidden group-hover:block top-[4rem] z-50 rounded-sm px-4 border border-secondaryColor-100  bg-white animate-slide-in"
                 >
                     {
                         categories.map((category)=>(
