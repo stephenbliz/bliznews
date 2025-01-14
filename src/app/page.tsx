@@ -11,7 +11,8 @@ import { div } from "framer-motion/client";
 
 export default function Home() {
   
-  const api = 'https://newsdata.io/api/1/latest?apikey=pub_6274603ea6bf70f464134421af60b2258351d&country=ng&language=en';
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  const api = `https://newsdata.io/api/1/latest?apikey=${apiKey}&country=ng&language=en`;
   const [news, setNews] = useState<newsProp[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
