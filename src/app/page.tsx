@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { fetchData } from "./utils/fetch";
 import { newsProp } from "../../types";
 import Loading from "./Component/loading";
-import { div } from "framer-motion/client";
 
 export default function Home() {
   
@@ -74,12 +73,19 @@ export default function Home() {
               <Loading />
             </div> 
           }
+          {error&& 
+            <div
+              className="text-center w-full p-8 h-[100%]" 
+            >
+              {error}
+            </div> 
+          }
           
         </div>
         <div
           className="col-span-1"
         >
-
+          No content yet
         </div>
 
       </section>
