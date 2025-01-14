@@ -1,23 +1,45 @@
 'use client';
-import NewsCard from "./Component/newsCard";
-import { motion } from "framer-motion"
-import { sectionAnimate } from "./utils/animation";
-
-
-
+import PopularPost from "./Component/popular";
+import EditorPick from "./Component/editor";
+import Highlights from "./Component/highlight";
+import HeadNews from "./Component/headnews";
+import { useState, useEffect } from "react";
+import { fetchData } from "./utils/fetch";
+import { newsProp } from "../../types";
+import Loading from "./Component/loading";
+import { div } from "framer-motion/client";
 
 export default function Home() {
-  const news = [
-    {author: 'ebuka uzoma', title: 'This is the title of the project', desc: 'Just a little description for a display about what the news is all about', date:'16 hours ago', id: 1},
-    {author: 'ebuka uzoma', title: 'This is the title of the project', desc: 'Just a little description for a display about what the news is all about', date:'16 hours ago', id: 2},
-  ]
+  
+  const api = 'https://newsdata.io/api/1/latest?apikey=pub_6274603ea6bf70f464134421af60b2258351d&country=ng&language=en';
+  const [news, setNews] = useState<newsProp[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  console.log(news)
+  useEffect(()=>{
+      const fetchAllData = async () => {
+        setLoading(true);
+        try{
+          const data = await fetchData(api);
+          if (data) {
+            setNews(data); // Ensure you're using the correct key from the API response
+            setLoading(false);
+          } else {
+              console.warn("No results found in the API response");
+              setError('No result found')
+              setLoading(false);
+          }
+        }catch(error){
+          console.log(error)
+          setError('No result found');
+        }finally{
+          setLoading(false);
+        }
+          
+      }
+      fetchAllData();
+    },[])
 
-  const news2 = [
-    {author: 'ebuka uzoma', title: 'This is the title of the project', desc: 'Just a little description for a display about what the news is all about', date:'16 hours ago', id: 1},
-    {author: 'ebuka uzoma', title: 'This is the title of the project', desc: 'Just a little description for a display about what the news is all about', date:'16 hours ago', id: 2},
-    {author: 'ebuka uzoma', title: 'This is the title of the project', desc: 'Just a little description for a display about what the news is all about', date:'16 hours ago', id: 3},
-    {author: 'ebuka uzoma', title: 'This is the title of the project', desc: 'Just a little description for a display about what the news is all about', date:'16 hours ago', id: 4},
-  ]
   return (
     <section
       className=" p-[1rem] lg:py-[2rem] lg:px-[4rem]"
@@ -28,136 +50,30 @@ export default function Home() {
         <div
           className="col-span-2"
         >
-          <motion.div
-            variants={sectionAnimate}
-            initial='hidden'
-            whileInView='visible'
-            className="lg:flex w-full mb-8 items-start pb-4 lg:pb-8 justify-between border-b-4 border-secondaryColor-100"
-          >
-            <div
-              className="lg:w-[60%]"
-            >
-              <NewsCard 
-                news={news[0]}
+          {news.length>0&&
+            <div>
+              <HeadNews 
+                news={news}
+              />
+              <Highlights 
+                news={news}
+              />
+              <EditorPick
+                news={news} 
+              />
+              <PopularPost 
+                news={news}
               />
             </div>
+          }
+          {loading&& 
             <div
-              className="w-full lg:w-[38%] flex flex-wrap justify-between items-start"
+              className="text-center w-full p-8 h-[100%]" 
             >
-              {
-                news.map((n)=>(
-                  <NewsCard
-                    key={n.id} 
-                    showAuthor={false}
-                    showTitle={false}
-                    mobileWidth="48%"
-                    news={n}
-                  />
-                ))
-              }
-            </div>
-          </motion.div>
-          <motion.div
-            className="border-b-4 mb-8 border-secondaryColor-100"
-            variants={sectionAnimate}
-            initial='hidden'
-            whileInView='visible'
-          >
-            <h1
-              className="text-2xl font-bold capitalize mb-8 text-secondaryColor-300"
-            >
-              highlights
-            </h1>
-            <div
-              className="lg:flex flex-wrap items-start pb-4 lg:pb-8 justify-between"
-            >
-              {news2.map((n)=>(
-                <div
-                  className="w-full lg:w-[48%]"
-                  key={n.id}
-                >
-                  <NewsCard 
-                    news={n}
-                  />
-                </div>
-                
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            className="border-b-4 mb-8 border-secondaryColor-100"
-            variants={sectionAnimate}
-            initial='hidden'
-            whileInView='visible'
-          >
-            <h1
-              className="text-2xl font-bold capitalize mb-8 text-secondaryColor-300"
-            >
-              editors pick
-            </h1>
-            <div
-              className="lg:flex flex-wrap items-start pb-4 lg:pb-8 justify-between"
-            >
-              {news2.map((n)=>(
-                <div
-                  className="w-full"
-                  key={n.id}
-                >
-                  <NewsCard 
-                    showShares={false}
-                    display="flex"
-                    descWidth="w-[68%]"
-                    imageWidth="w-[30%]"
-                    news={n}
-                  />
-                </div>
-                
-              ))}
-            </div>
-          </motion.div>
-          <motion.div
-            className="border-b-4 mb-8 border-secondaryColor-100"
-            variants={sectionAnimate}
-            initial='hidden'
-            whileInView='visible'
-          >
-            <h1
-              className="text-2xl font-bold capitalize mb-8 text-secondaryColor-300"
-            >
-              popular post
-            </h1>
-            <div
-              className="lg:flex flex-wrap items-start justify-between"
-            >
-              <div
-                className="lg:w-[48%]"
-              >
-                <NewsCard 
-                  news={news[0]}
-                />
-              </div>
-              <div
-                className="lg:w-[48%] flex flex-wrap justify-between items-start"
-              >
-                {
-                  news2.map((n)=>(
-                    <NewsCard 
-                      key={n.id}
-                      showAuthor={false}
-                      showTitle={false}
-                      showShares={false}
-                      showTag={false}
-                      display="flex"
-                      descWidth="w-[68%]"
-                      imageWidth="w-[30%]"
-                      news={n}
-                    />
-                  ))
-                }
-              </div>
-            </div>
-          </motion.div>
-
+              <Loading />
+            </div> 
+          }
+          
         </div>
         <div
           className="col-span-1"

@@ -3,10 +3,14 @@ import { newsCardProp } from "../../../types"
 import { FaShare } from "react-icons/fa";
 import { FaComment } from "react-icons/fa";
 import Link from "next/link"
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { CSSProperties } from "react";
 
+dayjs.extend(relativeTime);
+
 export default function NewsCard({
-    display='block', 
+    display='block',
     showShares=true, 
     showTag=true, 
     news, 
@@ -15,11 +19,13 @@ export default function NewsCard({
     imageWidth="w-[100%]", 
     descWidth="w-[100%]", 
     showTitle= true, 
-    showAuthor=true
+    showAuthor=true,
+    titleFont = 'text-lg'
 }:newsCardProp){
 
     return(
-        <div
+        <>
+        {news &&<div
             className={`${display} w-[var(--mobile)] mb-8 lg:w-[var(--width)] items-start justify-between text-secondaryColor-300`}
             style={{'--width': cardWidth, '--mobile': mobileWidth} as CSSProperties}
         >
@@ -28,13 +34,12 @@ export default function NewsCard({
                 href='#'
             >
                 <Image
-                    src='/assets/images/myPhoto.jpg'
+                    src={`${news.image_url === null ? '/assets/images/newsImage.webp': news.image_url}`}
                     className="w-full"
-                    layout="responsive"
                     width={16}
                     height={9}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    alt="image not available" 
+                    alt={news.title} 
                 />
             </Link>
             <div
@@ -42,14 +47,14 @@ export default function NewsCard({
             >
                 {showTag &&
                     <span
-                        className="uppercase text-sm block font-normal text-secondaryColor-100"
+                        className="uppercase text-[.7rem] block font-normal text-secondaryColor-100"
                     >
-                        must read
+                        {news.category}
                     </span>
                 }
                 {showTitle &&
                     <h1
-                        className="mb-2 capitalize text-3xl font-bold hover:text-primaryColor transition duration-300 ease-linear"
+                        className={`mb-2 capitalize ${titleFont} font-bold hover:text-primaryColor transition duration-300 ease-linear`}
                     >
                         <Link
                             href=''
@@ -62,7 +67,7 @@ export default function NewsCard({
                     <p
                         className={`mb-2`}
                     >
-                        {news.desc}
+                        {news.description?.substring(0,60)}...
                     </p>
                     :
                     <p
@@ -71,23 +76,23 @@ export default function NewsCard({
                         <Link
                             href='#'
                         >
-                            {news.desc}
+                            {news.description?.substring(0,60)}...
                         </Link>
                     </p>
 
                 }
                 {showAuthor &&
-                    <p
-                        className="mb-2 flex items-center gap-2"
+                    <div
+                        className="mb-2 flex items-center w-fit gap-2"
                     >
                         <span>By</span>
                         <Link
                             href='#'
                             className="text-primaryColor capitalize hover:underline transition duration-300 ease-linear"
                         >
-                            {news.author}
+                            {news.creator}
                         </Link>
-                    </p>
+                    </div>
                 }
                 {showShares &&
                     <div
@@ -118,13 +123,14 @@ export default function NewsCard({
                     </div>
                 }
                 {showShares === false && 
-                    <p
-                        className="text-secondaryColor-100"
+                    <div
+                        className="text-secondaryColor-100 text-[.8rem] w-fit"
                     >
-                        {news.date}
-                    </p>
+                        {dayjs(news.pubDate).fromNow()}
+                    </div>
                 }
             </div>
-        </div>
+        </div>}
+        </>
     )
 }

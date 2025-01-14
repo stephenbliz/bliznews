@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "./Component/header";
 import Footer from "./Component/footer";
 import "./globals.css";
+// import FetchAllCategoryContextProvider from "./contexts/fetchContext/fetchProvider";
 
 export const metadata: Metadata = {
   title: "Bliznews",
