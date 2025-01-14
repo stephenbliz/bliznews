@@ -89,9 +89,9 @@ export default function Home() {
         </div>
 
       </section>
-      <section>
+      {/* <section>
 
-      </section>
+      </section> */}
     </section>
   );
 }
