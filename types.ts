@@ -69,6 +69,9 @@ export interface newsProp {
 
 export interface popularPostProp{
     news: newsProp[]
+    showLargeSide?: boolean
+    headTitle?: string
+    smallSideWidth?: string
 }
 export interface headNewsProp{
     news: newsProp[]
@@ -78,4 +81,8 @@ export interface highLightProp{
 }
 export interface editorsPickProp{
     news: newsProp[]
+}
+export interface RecentPostProp{
+    news: newsProp[]
+    loading: boolean
 }

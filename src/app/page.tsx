@@ -7,6 +7,10 @@ import { useState, useEffect } from "react";
 import { fetchData } from "./utils/fetch";
 import { newsProp } from "../../types";
 import Loading from "./Component/loading";
+import RecentPost from "./Component/recentPost";
+import Advertisement from "./Component/advertisement";
+import NewsLetter from "./Component/newsletter";
+import FollowUs from "./Component/followUs";
 
 export default function Home() {
   
@@ -45,7 +49,7 @@ export default function Home() {
       className=" p-[1rem] lg:py-[2rem] lg:px-[4rem]"
     >
       <section
-        className="lg:grid grid-cols-3 items-start gap-2"
+        className="lg:grid grid-cols-3 items-start gap-6"
       >
         <div
           className="col-span-2"
@@ -85,7 +89,32 @@ export default function Home() {
         <div
           className="col-span-1"
         >
-          No content yet
+          <RecentPost 
+            news={news}
+            loading={loading}
+          />
+          <Advertisement />
+          <div
+            className="border border-secondaryColor-100 rounded mb-8 p-6"
+          >
+            {news.length>0&&
+            <div>
+              <PopularPost 
+                news={news}
+                showLargeSide={false}
+                smallSideWidth="w-[full]"
+                headTitle="4 most popular"
+              />
+            </div>
+            }
+            {loading&& 
+              <Loading />
+            }
+            
+          </div>
+          <FollowUs />
+          <NewsLetter />
+
         </div>
 
       </section>
