@@ -22,7 +22,7 @@ export default function Home() {
   const [error, setError] = useState('');
   const [newsLatest, setNewsLatest] = useState<newsLatestProp[]>([]);
   const [loadingLatest, setLoadingLatest] = useState(false);
-  const [errorLatest, setErrorLatest] = useState('');
+  const [errorLatest, setErrorLatest] = useState<string>('');
   console.log(news)
   console.log(newsLatest)
   useEffect(()=>{
@@ -58,7 +58,8 @@ export default function Home() {
           setNewsLatest(data);
           setLoadingLatest(false);
         }catch(error){
-          setErrorLatest('Could not Fetch latest News')
+          console.log(error)
+          setErrorLatest("No results found in the API response")
         }finally{
           setLoadingLatest(false);
         }
