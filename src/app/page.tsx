@@ -4,13 +4,14 @@ import EditorPick from "./Component/editor";
 import Highlights from "./Component/highlight";
 import HeadNews from "./Component/headnews";
 import { useState, useEffect } from "react";
-import { fetchData } from "./utils/fetch";
-import { newsProp } from "../../types";
+import { fetchData, fetchLatest } from "./utils/fetch";
+import { newsLatestProp, newsProp } from "../../types";
 import Loading from "./Component/loading";
 import RecentPost from "./Component/recentPost";
 import Advertisement from "./Component/advertisement";
 import NewsLetter from "./Component/newsletter";
 import FollowUs from "./Component/followUs";
+import TrendingNews from "./Component/trending";
 
 export default function Home() {
   
@@ -19,7 +20,11 @@ export default function Home() {
   const [news, setNews] = useState<newsProp[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [newsLatest, setNewsLatest] = useState<newsLatestProp[]>([]);
+  const [loadingLatest, setLoadingLatest] = useState(false);
+  const [errorLatest, setErrorLatest] = useState('');
   console.log(news)
+  console.log(newsLatest)
   useEffect(()=>{
       const fetchAllData = async () => {
         setLoading(true);
@@ -30,12 +35,12 @@ export default function Home() {
             setLoading(false);
           } else {
               console.warn("No results found in the API response");
-              setError('No result found')
+              setError('Rate Limit Exceeded')
               setLoading(false);
           }
         }catch(error){
           console.log(error)
-          setError('No result found');
+          setError('Rate Limit Exceeded');
         }finally{
           setLoading(false);
         }
@@ -43,6 +48,24 @@ export default function Home() {
       }
       fetchAllData();
     },[])
+
+    useEffect(()=>{
+      
+      const getData = async () =>{
+        setLoadingLatest(true)
+        try{
+          const data = await fetchLatest();
+          setNewsLatest(data);
+          setLoadingLatest(false);
+        }catch(error){
+          setErrorLatest('Could not Fetch latest News')
+        }finally{
+          setLoadingLatest(false);
+        }
+        
+      }
+      getData();
+    }, [])
 
   return (
     <section
@@ -118,9 +141,13 @@ export default function Home() {
         </div>
 
       </section>
-      {/* <section>
-
-      </section> */}
+      <section>
+        <TrendingNews
+          news={newsLatest} 
+          error={errorLatest}
+          loading={loadingLatest}
+        />
+      </section>
     </section>
   );
 }

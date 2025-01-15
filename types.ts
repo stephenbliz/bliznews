@@ -86,3 +86,23 @@ export interface RecentPostProp{
     news: newsProp[]
     loading: boolean
 }
+
+export interface newsLatestProp{
+    date: string
+    images: string[]
+    publisher: {
+        href: string 
+        title: string
+    }
+    short_description: string
+    text: string
+    title: string
+    top_image: string
+    url: string
+    videos: string[]
+}
+export interface trendingNewsProp{
+    news: newsLatestProp[]
+    error: string
+    loading: boolean
+}
