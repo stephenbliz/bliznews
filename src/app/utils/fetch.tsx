@@ -41,7 +41,7 @@ export const fetchLatest = async () => {
         const data = await res.json();
         return data.news;
     }catch(error){
-        console.log('Error fetchinh new:', error);
+        console.log('Error fetching news:', error);
     }
 }
 

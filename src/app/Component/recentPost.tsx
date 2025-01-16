@@ -4,8 +4,13 @@ import Loading from "./loading";
 
 
 export default function RecentPost({news, loading}: RecentPostProp){
-    const newsIndex = [8, 7, 3, 1, 5]
+    const newsIndex = [8, 7, 3, 1, 5];
+
     const filteredNews = news.filter((_, index)=> newsIndex.includes(index));
+
+    const slugify = (title: string) => {
+        return title.toLocaleLowerCase().trim().replace(/[\s\W-]+/g, '-');
+    }
     return(
         <div
             className="border border-secondaryColor-100 rounded p-6 mb-8"
@@ -31,7 +36,7 @@ export default function RecentPost({news, loading}: RecentPostProp){
                                     key={item.article_id}
                                 >
                                     <Link
-                                        href=''
+                                        href={slugify(item.title)}
                                         className=""
                                     >
                                         {item.description?.substring(0, 60)}...

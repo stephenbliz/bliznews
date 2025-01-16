@@ -12,42 +12,45 @@ import Advertisement from "./Component/advertisement";
 import NewsLetter from "./Component/newsletter";
 import FollowUs from "./Component/followUs";
 import TrendingNews from "./Component/trending";
+import { useFetchAllContext } from "./Component/context/fetchAll";
 
 export default function Home() {
+
+  const {news, loading, error} = useFetchAllContext()
   
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  const api = `https://newsdata.io/api/1/latest?apikey=${apiKey}&country=ng&language=en`;
-  const [news, setNews] = useState<newsProp[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+  // const api = `https://newsdata.io/api/1/latest?apikey=${apiKey}&country=ng&language=en`;
+  // const [news, setNews] = useState<newsProp[]>([]);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState('');
   const [newsLatest, setNewsLatest] = useState<newsLatestProp[]>([]);
   const [loadingLatest, setLoadingLatest] = useState(false);
   const [errorLatest, setErrorLatest] = useState<string>('');
   console.log(news)
   console.log(newsLatest)
-  useEffect(()=>{
-      const fetchAllData = async () => {
-        setLoading(true);
-        try{
-          const data = await fetchData(api);
-          if (data) {
-            setNews(data); // Ensure you're using the correct key from the API response
-            setLoading(false);
-          } else {
-              console.warn("No results found in the API response");
-              setError('Rate Limit Exceeded')
-              setLoading(false);
-          }
-        }catch(error){
-          console.log(error)
-          setError('Rate Limit Exceeded');
-        }finally{
-          setLoading(false);
-        }
+  // useEffect(()=>{
+  //     const fetchAllData = async () => {
+  //       setLoading(true);
+  //       try{
+  //         const data = await fetchData(api);
+  //         if (data) {
+  //           setNews(data); // Ensure you're using the correct key from the API response
+  //           setLoading(false);
+  //         } else {
+  //             console.warn("No results found in the API response");
+  //             setError('Rate Limit Exceeded')
+  //             setLoading(false);
+  //         }
+  //       }catch(error){
+  //         console.log(error)
+  //         setError('Rate Limit Exceeded');
+  //       }finally{
+  //         setLoading(false);
+  //       }
           
-      }
-      fetchAllData();
-    },[])
+  //     }
+  //     fetchAllData();
+  //   },[])
 
     useEffect(()=>{
       
@@ -59,7 +62,7 @@ export default function Home() {
           setLoadingLatest(false);
         }catch(error){
           console.log(error)
-          setErrorLatest("No results found in the API response")
+          setErrorLatest("No results found in the API response");
         }finally{
           setLoadingLatest(false);
         }
@@ -143,11 +146,28 @@ export default function Home() {
 
       </section>
       <section>
-        <TrendingNews
-          news={newsLatest} 
-          error={errorLatest}
-          loading={loadingLatest}
-        />
+        
+        <div>
+          {newsLatest&&
+            <TrendingNews
+                news={newsLatest} 
+            />
+          }
+          {errorLatest && 
+            <p
+              className="text-xl font-bold text-center p-8"
+            >
+              {errorLatest}
+            </p>
+          }
+          {loadingLatest && 
+            <div>
+              <Loading />
+            </div>
+          }
+        </div>
+        
+        
       </section>
     </section>
   );

@@ -3,11 +3,11 @@ import { trendingNewsProp } from "../../../types";
 import Image from "next/image";
 import Loading from "./loading";
 import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import relativeTime from "dayjs/plugin/relativeTime";   
 
 dayjs.extend(relativeTime);
 
-export default function TrendingNews({news, error, loading}:trendingNewsProp){
+export default function TrendingNews({news}:trendingNewsProp){
     const filteredNews = news?.filter((item)=>item.title !== "")
     console.log('filtered:', filteredNews);
     return(
@@ -17,7 +17,6 @@ export default function TrendingNews({news, error, loading}:trendingNewsProp){
             >
                 trending USA
             </h1>
-            {news.length>0&&
                 <div
                     className="flex items-start justify-between gap-y-[1.5rem] flex-wrap"
                 >
@@ -57,19 +56,6 @@ export default function TrendingNews({news, error, loading}:trendingNewsProp){
                     ))
                 }
                 </div>
-            }
-            {loading &&
-                <div>
-                    <Loading />
-                </div>
-            }
-            {error&&
-                <div
-                    className="text-center m-auto"
-                >
-                    {error}
-                </div>
-            }
         </div>
     )
 }

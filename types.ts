@@ -103,6 +103,19 @@ export interface newsLatestProp{
 }
 export interface trendingNewsProp{
     news: newsLatestProp[]
-    error: string
+}
+export interface newsDetailProp{
+    imageALT: string
+    imageSRC: string | null
+    time: string | undefined
+    description: string | undefined
+    title: string
+    author: string | null | undefined
+    content?: string | undefined
+}
+export interface fetchAllContextProp{
+    news: newsProp[]
     loading: boolean
+    error: string
+    fetchAllData: () => void
 }

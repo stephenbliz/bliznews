@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "./Component/header";
 import Footer from "./Component/footer";
 import "./globals.css";
-// import FetchAllCategoryContextProvider from "./contexts/fetchContext/fetchProvider";
+import FetchAllContextProvider from "./Component/context/fetchAll";
 
 export const metadata: Metadata = {
   title: "Bliznews",
@@ -19,7 +19,9 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
       >
         <Header />
         <main>
-          {children}
+          <FetchAllContextProvider>
+            {children}
+          </FetchAllContextProvider>
         </main>
         <Footer />
       </body>
