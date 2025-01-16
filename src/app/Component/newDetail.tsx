@@ -8,7 +8,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { newsDetailProp } from "../../../types";
 import CommentInput from "./commentInput";
 import Comment from "./comment";
-import NewsCard from "./newsCard";
 
 dayjs.extend(relativeTime);
 

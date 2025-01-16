@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { trendingNewsProp } from "../../../types";
 import Image from "next/image";
-import Loading from "./loading";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";   
 

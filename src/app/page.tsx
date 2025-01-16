@@ -3,9 +3,6 @@ import PopularPost from "./Component/popular";
 import EditorPick from "./Component/editor";
 import Highlights from "./Component/highlight";
 import HeadNews from "./Component/headnews";
-import { useState, useEffect } from "react";
-import { fetchData, fetchLatest } from "./utils/fetch";
-import { newsLatestProp, newsProp } from "../../types";
 import Loading from "./Component/loading";
 import RecentPost from "./Component/recentPost";
 import Advertisement from "./Component/advertisement";
@@ -20,30 +17,8 @@ export default function Home() {
   const {news, loading, error} = useFetchAllContext()
   const {newsLatest, loadingLatest, errorLatest} = useFetchTrendingContext();
   
-  // const [newsLatest, setNewsLatest] = useState<newsLatestProp[]>([]);
-  // const [loadingLatest, setLoadingLatest] = useState(false);
-  // const [errorLatest, setErrorLatest] = useState<string>('');
   console.log(news)
   console.log(newsLatest)
-
-    // useEffect(()=>{
-      
-    //   const getData = async () =>{
-    //     setLoadingLatest(true)
-    //     try{
-    //       const data = await fetchLatest();
-    //       setNewsLatest(data);
-    //       setLoadingLatest(false);
-    //     }catch(error){
-    //       console.log(error)
-    //       setErrorLatest("No results found in the API response");
-    //     }finally{
-    //       setLoadingLatest(false);
-    //     }
-        
-    //   }
-    //   getData();
-    // }, [])
 
   return (
     <section
