@@ -17,8 +17,8 @@ export default function Home() {
   const {news, loading, error} = useFetchAllContext()
   const {newsLatest, loadingLatest, errorLatest} = useFetchTrendingContext();
   
-  console.log(news)
-  console.log(newsLatest)
+  console.log('All news:', news)
+  console.log('Latest news:', newsLatest)
 
   return (
     <section

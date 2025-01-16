@@ -11,34 +11,6 @@ export interface newsCardProp{
     news?: newsProp
     titleFont?: string
 }
-
-// export interface newsProp{
-//     ai_org: string
-//     ai_region: string
-//     ai_tag: string
-//     article_id: string
-//     category: string[]
-//     content: string
-//     country: string[]
-//     creator: string[]
-//     description: string
-//     duplicate: boolean
-//     image_url: string
-//     keywords: string[]
-//     language: string
-//     link: string
-//     pubDate: string
-//     pubDateTZ: string
-//     sentiment: string
-//     sentiment_stats: string
-//     source_icon: string
-//     source_id: string
-//     source_name: string
-//     source_priority: number
-//     source_url: string
-//     title: string
-//     video_url: string
-// }
 export interface newsProp {
     ai_org?: string; // Optional: Only available in corporate plans
     ai_region?: string; // Optional: Only available in corporate plans
@@ -89,18 +61,23 @@ export interface RecentPostProp{
 
 export interface newsLatestProp{
     date: string
-    images: string[]
-    publisher: {
-        href: string 
-        title: string
-    }
-    short_description: string
-    text: string
     title: string
-    top_image: string
     url: string
-    videos: string[]
+    videos?: string[]
+    excerpt: string
+    thumbnail: string | null
+    language?: string
+    paywall?: boolean
+    contentLength?: number
+    authors: string
+    keywords?: string[]
+    publisher: {
+        name: string
+        url: string
+    }
+    favicon?: string
 }
+
 export interface trendingNewsProp{
     news: newsLatestProp[]
 }
@@ -112,6 +89,7 @@ export interface newsDetailProp{
     title: string
     author: string | null | undefined
     content?: string | undefined
+    link: string
 }
 export interface fetchAllContextProp{
     news: newsProp[]

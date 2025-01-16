@@ -8,10 +8,11 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { newsDetailProp } from "../../../types";
 import CommentInput from "./commentInput";
 import Comment from "./comment";
+import Link from "next/link";
 
 dayjs.extend(relativeTime);
 
-export default function NewsDetail({imageALT, imageSRC, author, time, title, content, description}: newsDetailProp){
+export default function NewsDetail({imageALT, imageSRC, link, author, time, title, content, description}: newsDetailProp){
     return(
         <section
             className="lg:w-[90%] mb-8"
@@ -150,13 +151,18 @@ export default function NewsDetail({imageALT, imageSRC, author, time, title, con
                         <div
                             className="border-b-4 border-secondaryColor-100 pb-4"
                         >
-                            {content &&
-                                <div
-                                    className="mb-8 "
+
+                            <div
+                                className="mb-8 "
+                            >
+                                <Link
+                                    href={link}
+                                    target="blank"
+                                    className="py-2 px-4 text-2xl border border-primaryColor bg"
                                 >
-                                    {content}
-                                </div>
-                            }
+                                    read more
+                                </Link>
+                            </div>
                             <div>
                                 <Comment />
                                 <CommentInput />

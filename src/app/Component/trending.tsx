@@ -7,8 +7,13 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 export default function TrendingNews({news}:trendingNewsProp){
-    const filteredNews = news?.filter((item)=>item.title !== "")
-    console.log('filtered:', filteredNews);
+    const filteredNews = news?.filter((item)=>item.title !== "");
+
+    const slugify = (title: string) =>{
+        return title.toLocaleLowerCase().trim().replace(/[\s\W-]+/g, '-')
+    }
+
+    // console.log('filtered:', filteredNews);
     return(
         <div>
             <h1
@@ -27,13 +32,13 @@ export default function TrendingNews({news}:trendingNewsProp){
                         >
                             <Link
                                 className="w-full mb-2 hover:brightness-[.8] transition duration-300 ease-linear"
-                                href=''
+                                href={slugify(item.title)}
                             >
-                                <Image 
+                                <Image
                                     alt={item.title}
                                     height={150}
                                     width={300}
-                                    src={`${item.top_image=== ''? '/assets/images/newsImage.webp' : item.top_image}`}
+                                    src={`${item.thumbnail=== ''? '/assets/images/newsImage.webp' : item.thumbnail}`}
                                     className="w-full"
                                 />
                             </Link>
@@ -46,7 +51,7 @@ export default function TrendingNews({news}:trendingNewsProp){
                                 className="font-bold mb-2 text-[1rem] hover:text-primaryColor transition duration-300 ease-linear"
                             >
                                 <Link
-                                    href=''
+                                    href={slugify(item.title)}
                                 >
                                     {item.title}
                                 </Link>
