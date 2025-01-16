@@ -119,3 +119,9 @@ export interface fetchAllContextProp{
     error: string
     fetchAllData: () => void
 }
+export interface fetchTrendingContextProp{
+    newsLatest: newsLatestProp[]
+    loadingLatest: boolean
+    errorLatest: string
+    getData: () => void
+}

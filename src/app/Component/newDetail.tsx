@@ -15,7 +15,7 @@ dayjs.extend(relativeTime);
 export default function NewsDetail({imageALT, imageSRC, author, time, title, content, description}: newsDetailProp){
     return(
         <section
-            className="lg:w-[90%]"
+            className="lg:w-[90%] mb-8"
         >
             
                 <div
@@ -162,18 +162,7 @@ export default function NewsDetail({imageALT, imageSRC, author, time, title, con
                                 <Comment />
                                 <CommentInput />
                             </div>
-                        </div>
-                        {/* <div>
-                            <h3
-                                className="capitalize text-2xl font-bold mb-4" 
-                            >
-                                read these next
-                            </h3>
-                            <div>
-                                
-                            </div>
-                        </div> */}
-                        
+                        </div>  
                     </div>
                 </div>
         </section>

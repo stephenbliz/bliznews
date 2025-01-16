@@ -1,5 +1,5 @@
 'use client'
-import { useFetchAllContext } from "../Component/context/fetchAll";
+import { useFetchAllContext } from "../context/fetchAll";
 import Loading from "../Component/loading";
 import NewsDetail from "../Component/newDetail";
 import { use } from "react";
@@ -36,23 +36,32 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                         description={filteredNews!.description}
                         author={filteredNews!.creator}
                         time={filteredNews!.pubDate}
-                        content={filteredNews?.description}
+                        // content={filteredNews?.description}
                     />
-                    <div>
+                    <div
+                        className="md:w-[67%] lg:w-[64%] mx-auto mb-4"
+                    >
                         <h3
                             className="capitalize text-2xl mb-4"
                         >
-                            read these too
+                            read these next
                         </h3>
                         <div
-
+                            className="flex flex-wrap gap-y-4"
                         >
-                            {/* {
-                                filteredNews.
+                            {
+                                otherNews.map((n)=>(
+                                    <NewsCard 
+                                        news={n}
+                                        key={n.article_id}
+                                        display="flex"
+                                        imageWidth="w-[28%]"
+                                        descWidth="w-[68%]"
+                                        titleFont="text-[1rem]"
+                                    />
+                                ))
                             }
-                            <NewsCard 
-                                news={filteredNews}
-                            /> */}
+                            
                         </div>
                     </div>
                 </div>

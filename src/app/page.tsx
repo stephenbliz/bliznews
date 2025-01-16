@@ -12,64 +12,38 @@ import Advertisement from "./Component/advertisement";
 import NewsLetter from "./Component/newsletter";
 import FollowUs from "./Component/followUs";
 import TrendingNews from "./Component/trending";
-import { useFetchAllContext } from "./Component/context/fetchAll";
+import { useFetchAllContext } from "./context/fetchAll";
+import { useFetchTrendingContext } from "./context/fetchTrending";
 
 export default function Home() {
 
   const {news, loading, error} = useFetchAllContext()
+  const {newsLatest, loadingLatest, errorLatest} = useFetchTrendingContext();
   
-  // const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  // const api = `https://newsdata.io/api/1/latest?apikey=${apiKey}&country=ng&language=en`;
-  // const [news, setNews] = useState<newsProp[]>([]);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState('');
-  const [newsLatest, setNewsLatest] = useState<newsLatestProp[]>([]);
-  const [loadingLatest, setLoadingLatest] = useState(false);
-  const [errorLatest, setErrorLatest] = useState<string>('');
+  // const [newsLatest, setNewsLatest] = useState<newsLatestProp[]>([]);
+  // const [loadingLatest, setLoadingLatest] = useState(false);
+  // const [errorLatest, setErrorLatest] = useState<string>('');
   console.log(news)
   console.log(newsLatest)
-  // useEffect(()=>{
-  //     const fetchAllData = async () => {
-  //       setLoading(true);
-  //       try{
-  //         const data = await fetchData(api);
-  //         if (data) {
-  //           setNews(data); // Ensure you're using the correct key from the API response
-  //           setLoading(false);
-  //         } else {
-  //             console.warn("No results found in the API response");
-  //             setError('Rate Limit Exceeded')
-  //             setLoading(false);
-  //         }
-  //       }catch(error){
-  //         console.log(error)
-  //         setError('Rate Limit Exceeded');
-  //       }finally{
-  //         setLoading(false);
-  //       }
-          
-  //     }
-  //     fetchAllData();
-  //   },[])
 
-    useEffect(()=>{
+    // useEffect(()=>{
       
-      const getData = async () =>{
-        setLoadingLatest(true)
-        try{
-          const data = await fetchLatest();
-          setNewsLatest(data);
-          setLoadingLatest(false);
-        }catch(error){
-          console.log(error)
-          setErrorLatest("No results found in the API response");
-        }finally{
-          setLoadingLatest(false);
-        }
+    //   const getData = async () =>{
+    //     setLoadingLatest(true)
+    //     try{
+    //       const data = await fetchLatest();
+    //       setNewsLatest(data);
+    //       setLoadingLatest(false);
+    //     }catch(error){
+    //       console.log(error)
+    //       setErrorLatest("No results found in the API response");
+    //     }finally{
+    //       setLoadingLatest(false);
+    //     }
         
-      }
-      getData();
-    }, [])
+    //   }
+    //   getData();
+    // }, [])
 
   return (
     <section

@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from "react";
-import { fetchAllContextProp, newsProp } from "../../../../types";
+import { fetchAllContextProp, newsProp } from "../../../types";
 import { fetchData } from "@/app/utils/fetch";
 
 export const FetchAllContext = createContext<fetchAllContextProp | undefined>(undefined);
