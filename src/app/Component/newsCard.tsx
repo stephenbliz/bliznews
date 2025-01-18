@@ -13,6 +13,7 @@ export default function NewsCard({
     display='block',
     showShares=true, 
     showTag=true, 
+    path='/new',
     news, 
     mobileWidth='100%', 
     cardWidth="100%", 
@@ -35,7 +36,7 @@ export default function NewsCard({
         >
             <Link
                 className={`${imageWidth} block hover:contrast-75 relative mb-4 transition duration-300 ease-linear`}
-                href={slugify(news.title)}
+                href={`${path}/${slugify(news.title)}`}
             >
                 <Image
                     src={`${news.image_url === null ? '/assets/images/newsImage.webp': news.image_url}`}
@@ -61,7 +62,7 @@ export default function NewsCard({
                         className={`mb-2 capitalize ${titleFont} font-bold hover:text-primaryColor transition duration-300 ease-linear`}
                     >
                         <Link
-                            href={slugify(news.title)}
+                            href={`${path}/${slugify(news.title)}`}
                         >
                             {news.title}
                         </Link>
@@ -78,7 +79,7 @@ export default function NewsCard({
                         className={`hover:text-primaryColor transition duration-300 ease-linear`}
                     >
                         <Link
-                            href={slugify(news.title)}
+                            href={`${path}/${slugify(news.title)}`}
                         >
                             {news.description?.substring(0,60)}...
                         </Link>
@@ -91,7 +92,7 @@ export default function NewsCard({
                     >
                         <span>By</span>
                         <Link
-                            href={slugify(news.title)}
+                            href={`${path}/${slugify(news.title)}`}
                             className="text-primaryColor capitalize hover:underline transition duration-300 ease-linear"
                         >
                             {news.creator}

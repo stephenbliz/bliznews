@@ -4,6 +4,7 @@ import Footer from "./Component/footer";
 import "./globals.css";
 import FetchAllContextProvider from "./context/fetchAll";
 import FetchTrendingContextProvider from "./context/fetchTrending";
+import FetchEntertainmentContextProvider from "./context/fetchEntertainment";
 
 export const metadata: Metadata = {
   title: "Bliznews",
@@ -22,7 +23,9 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
         <main>
           <FetchAllContextProvider>
             <FetchTrendingContextProvider>
-              {children}
+              <FetchEntertainmentContextProvider>
+                {children}
+              </FetchEntertainmentContextProvider>
             </FetchTrendingContextProvider>
           </FetchAllContextProvider>
         </main>

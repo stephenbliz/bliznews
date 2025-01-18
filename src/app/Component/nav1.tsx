@@ -32,7 +32,7 @@ export default function Nav1(){
 
     return(
         <nav
-            className="h-[7rem] relative lg:h[5rem] bg-primaryColor px-[1rem] text-white sm:px-[4rem] flex items-center justify-between"
+            className="h-[7rem] relative lg:h[5rem] bg-primaryColor px-[1rem] text-white md:px-[4rem] flex items-center justify-between"
         >
             <div
                 className="flex items-center gap-3 w-[45%]"

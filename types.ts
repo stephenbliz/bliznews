@@ -10,6 +10,7 @@ export interface newsCardProp{
     mobileWidth?: string
     news?: newsProp
     titleFont?: string
+    path?: string
 }
 export interface newsProp {
     ai_org?: string; // Optional: Only available in corporate plans
@@ -96,6 +97,12 @@ export interface fetchAllContextProp{
     loading: boolean
     error: string
     fetchAllData: () => void
+}
+export interface fetchEntertainmentContextProp{
+    news: newsProp[]
+    loading: boolean
+    error: string
+    fetchEntertainment: () => void
 }
 export interface fetchTrendingContextProp{
     newsLatest: newsLatestProp[]

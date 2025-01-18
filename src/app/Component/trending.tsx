@@ -32,7 +32,7 @@ export default function TrendingNews({news}:trendingNewsProp){
                         >
                             <Link
                                 className="w-full mb-2 hover:brightness-[.8] transition duration-300 ease-linear"
-                                href={slugify(item.title)}
+                                href={`/news/${slugify(item.title)}`}
                             >
                                 <Image
                                     alt={item.title}
@@ -51,7 +51,7 @@ export default function TrendingNews({news}:trendingNewsProp){
                                 className="font-bold mb-2 text-[1rem] hover:text-primaryColor transition duration-300 ease-linear"
                             >
                                 <Link
-                                    href={slugify(item.title)}
+                                    href={`/news/${slugify(item.title)}`}
                                 >
                                     {item.title}
                                 </Link>

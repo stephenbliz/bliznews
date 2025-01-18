@@ -1,9 +1,9 @@
 'use client'
-import { useFetchAllContext } from "../context/fetchAll";
-import NewsDetail from "../Component/newDetail";
+import { useFetchAllContext } from "@/app/context/fetchAll";
+import NewsDetail from "../../Component/newDetail";
 import { use } from "react";
-import NewsCard from "../Component/newsCard";
-import { useFetchTrendingContext } from "../context/fetchTrending";
+import NewsCard from "../../Component/newsCard";
+import { useFetchTrendingContext } from "@/app/context/fetchTrending";
 
 export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
     const {news} = useFetchAllContext();
@@ -24,13 +24,7 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
     const otherNews = news?.filter((item)=>{
         return homeid !== slugify(item.title)
     })
-    // const otherNews2 = newsLatest?.filter((item)=>{
-    //     return homeid !== slugify(item.title)
-    // })
-    console.log('other new:', otherNews)
-
-    console.log(filteredNews);
-
+   
     return(
         <section
             className=" p-[1rem] lg:py-[2rem] lg:px-[4rem]"

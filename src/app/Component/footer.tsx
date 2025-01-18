@@ -37,7 +37,7 @@ export default function Footer(){
             className="bg-secondaryColor-400 mt-[3rem] pt-4 lg:pt-0"
         >
            <div
-            className="p-[1rem] lg:p-[4rem] lg:grid grid-cols-3 items-start "
+            className="p-[1rem] md:px-[6rem] lg:p-[4rem] lg:grid grid-cols-3 items-start "
            >
                 <div
                     className="col-span-1 mb-8 lg:mb-0"
