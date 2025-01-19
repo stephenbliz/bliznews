@@ -104,6 +104,30 @@ export interface fetchEntertainmentContextProp{
     error: string
     fetchEntertainment: () => void
 }
+export interface fetchTechnologyContextProp{
+    news: newsProp[]
+    loading: boolean
+    error: string
+    fetchTechnology: () => void
+}
+export interface fetchPoliticsContextProp{
+    news: newsProp[]
+    loading: boolean
+    error: string
+    fetchPolitics: () => void
+}
+export interface fetchSportsContextProp{
+    news: newsProp[]
+    loading: boolean
+    error: string
+    fetchSports: () => void
+}
+export interface fetchBusinessContextProp{
+    news: newsProp[]
+    loading: boolean
+    error: string
+    fetchBusiness: () => void
+}
 export interface fetchTrendingContextProp{
     newsLatest: newsLatestProp[]
     loadingLatest: boolean

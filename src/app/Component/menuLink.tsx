@@ -10,7 +10,7 @@ export default function MenuLinks(){
         {name: 'entertainment', link: '/entertainment', id: 1},
         {name: 'technology', link: '/technology', id: 2},
         {name: 'politics', link: '/politics', id: 3},
-        {name: 'sport', link: '/sport', id: 4},
+        {name: 'sports', link: '/sports', id: 4},
         {name: 'business', link: '/business', id: 5}
     ]
     return(
