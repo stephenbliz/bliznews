@@ -124,6 +124,7 @@ export default function Nav1(){
             </div>
             <MobileMenu 
                 openMenu = {openMenu}
+                setOpenMenu={setOpenMenu}
             />
         </nav>
     )

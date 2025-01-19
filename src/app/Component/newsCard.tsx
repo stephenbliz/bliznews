@@ -13,7 +13,7 @@ export default function NewsCard({
     display='block',
     showShares=true, 
     showTag=true, 
-    path='/new',
+    path='/news',
     news, 
     mobileWidth='100%', 
     cardWidth="100%", 

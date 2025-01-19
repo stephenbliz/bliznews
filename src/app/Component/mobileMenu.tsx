@@ -11,9 +11,10 @@ import { CSSProperties, useState } from 'react';
 
 interface mobileMenuProp{
     openMenu: boolean
+    setOpenMenu: (value:boolean)=>void
 }
 
-export default function MobileMenu({openMenu}:mobileMenuProp){
+export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
     const pathname = usePathname();
     const [drop, setDrop] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
@@ -40,6 +41,9 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
     const handleOpenSearch = ()=>{
         setOpenSearch(true);
     }
+    const handleCloseMenu = () =>{
+        setOpenMenu(false)
+    }
 
     return(
         <div
@@ -51,12 +55,14 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                 <Link
                     className={`${pathname === '/'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                     href='/'
+                    onClick={handleCloseMenu}
                 >
                     home
                 </Link>
                 <Link
                     className={`${pathname === '/about'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                     href='/about'
+                    onClick={handleCloseMenu}
                 >
                     about
                 </Link>
@@ -82,6 +88,7 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                                 className={`${pathname === category.link ? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac20] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                                 href={category.link}
                                 key={category.id}
+                                onClick={handleCloseMenu}
                             >
                                 {category.name}
                             </Link>
@@ -91,6 +98,7 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                 <Link
                     className={`${pathname === '/contact'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
                     href='/contact'
+                    onClick={handleCloseMenu}
                 >
                     contact
                 </Link>
@@ -122,6 +130,7 @@ export default function MobileMenu({openMenu}:mobileMenuProp){
                             <Link
                                 href='#'
                                 key={media.id}
+                                onClick={handleCloseMenu}
                                 className='text-[var(--color)] border border-[#b0acac55] p-2 text-3xl'
                                 style={{'--color': media.colour} as CSSProperties}
                             >
