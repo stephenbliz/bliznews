@@ -1,6 +1,7 @@
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { FaLinkedinIn } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 import { shareButtonProp } from "../../../types";
@@ -97,6 +98,22 @@ export default function ShareButtons({pathname, baseURL, title}: shareButtonProp
                         className=" hidden md:inline-block w-fit"
                     >
                         whatsapp
+                    </span>
+                </Link>
+                <Link
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${baseURL}${pathname}&title=${slugify(title)}`}
+                    target="_blank"
+                    className="flex capitalize cursor-pointer text-secondaryColor-100 hover:text-primaryColor items-center justify-start gap-2 md:border-b border-secondaryColor-100 md:p-1 lg:p-4 transition duration-300 ease-linear"
+                >
+                    <span
+                        className="w-fit text-3xl"
+                    >
+                        <FaLinkedinIn />
+                    </span>
+                    <span
+                        className=" hidden md:inline-block w-fit"
+                    >
+                        linkedIn
                     </span>
                 </Link>
             </div>
