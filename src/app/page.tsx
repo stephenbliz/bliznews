@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <section
-      className=" p-[1rem] md:px-[6rem] lg:py-[2rem] lg:px-[4rem]"
+      className=" p-[1rem] md:px-[2rem] lg:py-[2rem] lg:px-[4rem]"
     >
       <section
         className="lg:grid grid-cols-3 items-start gap-6"

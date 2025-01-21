@@ -1,8 +1,11 @@
+'use client';
 import Link from "next/link";
 import { trendingNewsProp } from "../../../types";
 import Image from "next/image";
 import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";   
+import relativeTime from "dayjs/plugin/relativeTime"; 
+import {motion} from 'framer-motion'  
+import { sectionAnimate } from "../utils/animation";
 
 dayjs.extend(relativeTime);
 
@@ -13,9 +16,13 @@ export default function TrendingNews({news}:trendingNewsProp){
         return title.toLocaleLowerCase().trim().replace(/[\s\W-]+/g, '-')
     }
 
-    // console.log('filtered:', filteredNews);
     return(
-        <div>
+        <motion.div
+            variants={sectionAnimate}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{once: true}}
+        >
             <h1
                 className={`text-2xl text-secondaryColor-300 font-bold capitalize mb-4 `}
             >
@@ -60,6 +67,6 @@ export default function TrendingNews({news}:trendingNewsProp){
                     ))
                 }
                 </div>
-        </div>
+        </motion.div>
     )
 }

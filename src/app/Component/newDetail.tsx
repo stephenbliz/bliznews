@@ -1,9 +1,6 @@
-import Image from "next/image"
-import dayjs from "dayjs"
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { FaShare } from "react-icons/fa";
+import Image from "next/image";
+import dayjs from "dayjs";
+import ShareButtons from "./shareButtons";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { newsDetailProp } from "../../../types";
 import CommentInput from "./commentInput";
@@ -12,164 +9,103 @@ import Link from "next/link";
 
 dayjs.extend(relativeTime);
 
-export default function NewsDetail({imageALT, imageSRC, link, author, time, title, content, description}: newsDetailProp){
+export default function NewsDetail({
+    imageALT, 
+    imageSRC, 
+    link, 
+    author, 
+    time, 
+    title, 
+    content, 
+    description, 
+    pathname, 
+    baseURL
+}: newsDetailProp){
+    
     return(
         <section
             className="lg:w-[90%] mb-8"
         >
-            
+            <div
+                className="border-b pb-4 mb-8 border-secondaryColor-100"
+            >
                 <div
-                    className="border-b pb-4 mb-8 border-secondaryColor-100"
+                    className="w-full mb-4"
                 >
-                    <div
-                        className="w-full mb-4"
+                    <Image 
+                        alt={imageALT}
+                        height={150}
+                        width={300}
+                        src={imageSRC || '/assets/images/newsImage.webp'}
+                        className="w-full"
+                    />
+                </div>
+                <div
+                    className="flex justify-start items-center gap-2 mb-4" 
+                >
+                    <span
+                        className="w-fit flex justify-start items-start gap-2 text-secondaryColor-100"
                     >
-                        <Image 
-                            alt={imageALT}
-                            height={150}
-                            width={300}
-                            src={imageSRC || '/assets/images/newsImage.webp'}
-                            className="w-full"
+                        <span>By</span>
+                        <span
+                            className="text-primaryColor capitalize"
+                        >
+                            {author}
+                        </span>
+                    </span>
+                    <span
+                        className="w-fit text-secondaryColor-100"
+                    >
+                        Published {dayjs(time).fromNow()}
+                    </span>
+                </div>
+                <h1
+                    className="font-bold mb-4 text-2xl text-secondaryColor-300"
+                >
+                    {title}
+                </h1>
+                <p
+                    className="mb-8"
+                >
+                    {description}
+                </p>
+                <div
+                    className="mb-8 "
+                >
+                    <Link
+                        href={link}
+                        target="blank"
+                        className="py-2 px-4 text-lg border border-primaryColor capitalize rounded hover:bg-primaryColor hover:text-white transition duration-300 ease-linear"
+                    >
+                        read more
+                    </Link>
+                </div>
+            </div>
+            <div
+                className="md:grid items-start grid-cols-5 gap-4"
+            >
+                <div
+                    className="col-span-1"
+                >
+                    {content && 
+                        <ShareButtons 
+                            baseURL={baseURL}
+                            pathname={pathname}
+                            title={title}
                         />
-                    </div>
-                    <div
-                        className="flex justify-start items-center gap-2 mb-4" 
-                    >
-                        <span
-                            className="w-fit flex justify-start items-start gap-2 text-secondaryColor-100"
-                        >
-                            <span>By</span>
-                            <span
-                                className="text-primaryColor capitalize"
-                            >
-                                {author}
-                            </span>
-                        </span>
-                        <span
-                            className="w-fit text-secondaryColor-100"
-                        >
-                           Published {dayjs(time).fromNow()}
-                        </span>
-                    </div>
-                    <h1
-                        className="font-bold mb-4 text-2xl text-secondaryColor-300"
-                    >
-                        {title}
-                    </h1>
-                    <p
-                        className="mb-4"
-                    >
-                        {description}
-                    </p>
+                    }
                 </div>
                 <div
-                    className="md:grid grid-cols-5 gap-4"
+                    className="col-span-4"
                 >
                     <div
-                        className="col-span-1"
+                        className="border-b-4 border-secondaryColor-100 "
                     >
-                        {content && 
-                            <ul
-                                className="hidden md:block border border-secondaryColor-100 rounded"
-                            >
-                                <li
-                                    className="p-4 text-center border-b border-secondaryColor-100"
-                                >
-                                    <span
-                                        className="text-secondaryColor-300 block text-5xl font-bold"
-                                    >
-                                        23
-                                    </span>
-                                    <span
-                                        className="text-lg font-bold block text-secondaryColor-300"
-                                    >
-                                        shares
-                                    </span>
-                                </li>
-                                <li
-                                    className="flex capitalize cursor-pointer text-secondaryColor-100 hover:text-primaryColor items-center justify-start gap-2 border-b border-secondaryColor-100 p-4 transition duration-300 ease-linear"
-                                >
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        <MdEmail />
-                                    </span>
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        email
-                                    </span>
-                                </li>
-                                <li
-                                    className="flex capitalize cursor-pointer text-secondaryColor-100 hover:text-primaryColor items-center justify-start gap-2 border-b border-secondaryColor-100 p-4 transition duration-300 ease-linear"
-                                >
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        <FaFacebookF />
-                                    </span>
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        facebook
-                                    </span>
-                                </li>
-                                <li
-                                    className="flex capitalize cursor-pointer text-secondaryColor-100 hover:text-primaryColor items-center justify-start gap-2 border-b border-secondaryColor-100 p-4 transition duration-300 ease-linear"
-                                >
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        <FaTwitter />
-                                    </span>
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        twitter
-                                    </span>
-                                </li>
-                                <li
-                                    className="flex capitalize cursor-pointer text-secondaryColor-100 hover:text-primaryColor items-center justify-start gap-2 border-b border-secondaryColor-100 p-4 transition duration-300 ease-linear"
-                                >
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        <FaShare />
-                                    </span>
-                                    <span
-                                        className="w-fit"
-                                    >
-                                        more
-                                    </span>
-                                </li>
-                            </ul>
-                        }
-                    </div>
-                    <div
-                        className="col-span-4"
-                    >
-                        <div
-                            className="border-b-4 border-secondaryColor-100 pb-4"
-                        >
-
-                            <div
-                                className="mb-8 "
-                            >
-                                <Link
-                                    href={link}
-                                    target="blank"
-                                    className="py-2 px-4 text-2xl border border-primaryColor bg"
-                                >
-                                    read more
-                                </Link>
-                            </div>
-                            <div>
-                                <Comment />
-                                <CommentInput />
-                            </div>
-                        </div>  
-                    </div>
+                        <Comment />
+                        <CommentInput />
+                    </div>  
                 </div>
+            </div>
         </section>
     )
 }

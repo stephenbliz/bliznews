@@ -91,6 +91,8 @@ export interface newsDetailProp{
     author: string | null | undefined
     content?: string | undefined
     link: string
+    pathname: string
+    baseURL: string
 }
 export interface fetchAllContextProp{
     news: newsProp[]
@@ -133,4 +135,9 @@ export interface fetchTrendingContextProp{
     loadingLatest: boolean
     errorLatest: string
     getData: () => void
+}
+export interface shareButtonProp{
+    baseURL: string
+    pathname: string
+    title: string
 }

@@ -1,6 +1,9 @@
+'use client';
 import Link from "next/link";
 import { RecentPostProp } from "../../../types";
 import Loading from "./loading";
+import {motion} from 'framer-motion';
+import { sectionAnimate } from "../utils/animation";
 
 
 export default function RecentPost({news, loading}: RecentPostProp){
@@ -12,8 +15,12 @@ export default function RecentPost({news, loading}: RecentPostProp){
         return title.toLocaleLowerCase().trim().replace(/[\s\W-]+/g, '-');
     }
     return(
-        <div
+        <motion.div
             className="border border-secondaryColor-100 rounded p-6 mb-8"
+            variants={sectionAnimate}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{once: true}}
         >
             {loading?
                 <div>
@@ -48,6 +55,6 @@ export default function RecentPost({news, loading}: RecentPostProp){
                 </div>
             }
             
-        </div>
+        </motion.div>
     )
 }

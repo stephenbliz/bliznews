@@ -1,10 +1,18 @@
+'use client';
 import { useState } from "react"
+import {motion} from 'framer-motion'
+import { sectionAnimate } from "../utils/animation";
 
 export default function NewsLetter(){
     const [email, setEmail] = useState('');
+
     return(
-        <div
+        <motion.div
             className="border border-secondaryColor-100 rounded p-6 mb-8"
+            variants={sectionAnimate}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{once: true}}
         >
             <h1
                 className={`text-2xl text-primaryColor text-center font-bold capitalize mb-4 `}
@@ -35,6 +43,6 @@ export default function NewsLetter(){
                     subscribe
                 </button>
             </form>
-        </div>
+        </motion.div>
     )
 }

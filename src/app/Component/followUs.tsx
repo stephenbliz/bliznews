@@ -5,6 +5,8 @@ import { TfiGoogle } from "react-icons/tfi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { CSSProperties} from 'react';
+import {motion} from 'framer-motion';
+import { sectionAnimate } from "../utils/animation";
 
 import Link from 'next/link';
 export default function FollowUs(){
@@ -16,8 +18,12 @@ export default function FollowUs(){
         {icon: <FaPinterest />, colour: '#B6081A', id: 5}, 
     ];
     return(
-        <div
+        <motion.div
             className={`border border-secondaryColor-100 rounded mb-8 p-6 w-full`}
+            variants={sectionAnimate}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{once: true}}
         >
             <h1
                 className={`text-2xl text-secondaryColor-300 font-bold capitalize mb-8 `}
@@ -41,6 +47,6 @@ export default function FollowUs(){
                 }
             </div>
             
-        </div>
+        </motion.div>
     )
 }

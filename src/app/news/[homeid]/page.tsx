@@ -3,6 +3,7 @@ import { useFetchAllContext } from "@/app/context/fetchAll";
 import NewsDetail from "../../Component/newDetail";
 import { use } from "react";
 import NewsCard from "../../Component/newsCard";
+import { usePathname } from "next/navigation";
 import { useFetchTrendingContext } from "@/app/context/fetchTrending";
 
 export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
@@ -10,6 +11,9 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
     const {newsLatest} = useFetchTrendingContext()
 
     const {homeid} = use(params)
+    const pathname = usePathname();
+    const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https:localhost:3000';
+    console.log(pathname)
 
     const slugify = (title: string) => {
         return title.toLowerCase().trim().replace(/[\s\W-]+/g, '-');
@@ -27,7 +31,7 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
    
     return(
         <section
-            className=" p-[1rem] lg:py-[2rem] lg:px-[4rem]"
+            className=" p-[1rem] md:px-[2rem] lg:py-[2rem] lg:px-[4rem]"
         >
             
             <div>
@@ -41,6 +45,8 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                         time={filteredNews!.pubDate}
                         link={filteredNews!.link}
                         content={filteredNews?.description}
+                        pathname={pathname}
+                        baseURL={baseURL}
                     />
                 }
                 {filteredNews2&&
@@ -54,12 +60,14 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                         time={filteredNews2!.date}
                         content={filteredNews2?.excerpt}
                         link={filteredNews2!.url}
+                        pathname={pathname}
+                        baseURL={baseURL}
                     />
                 }
             </div>
         
             <div
-                className="md:w-[67%] lg:w-[64%] mx-auto mb-4"
+                className="md:w-[80%] lg:w-[72%] md:ml-[20%] lg:ml-[18%] mb-4"
             >
                 <h3
                     className="capitalize text-2xl mb-4"

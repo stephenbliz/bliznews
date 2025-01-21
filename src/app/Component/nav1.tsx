@@ -2,6 +2,7 @@
 import { CSSProperties, useState} from "react";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { RiMenu2Line } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 import { RiTriangleFill } from "react-icons/ri";
@@ -120,7 +121,7 @@ export default function Nav1(){
                 className="block lg:hidden w-fit text-center text-[3rem]"
                 onClick={handleOpenMenu}
             >
-                <RiMenu2Line />
+                {openMenu === false ? <RiMenu2Line /> : <IoClose />}
             </div>
             <MobileMenu 
                 openMenu = {openMenu}

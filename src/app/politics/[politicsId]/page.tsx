@@ -1,12 +1,15 @@
 'use client';
 import { useFetchPoliticsContext } from "@/app/context/fetchPolitics";
 import { use } from "react";
+import { usePathname } from "next/navigation";
 import NewsCard from "@/app/Component/newsCard";
 import NewsDetail from "@/app/Component/newDetail";
 
 export default function TechnologyDetail({params}:{params:Promise<{politicsId: string}>}){
     const {politicsId} = use(params);
     const {news} = useFetchPoliticsContext();
+    const pathname = usePathname();
+    const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https:localhost:3000';
     const slugify = (title:string) => {
         return title.toLocaleLowerCase().trim().replace(/[\s\W-]+/g, '-');
     }
@@ -20,7 +23,7 @@ export default function TechnologyDetail({params}:{params:Promise<{politicsId: s
 
     return(
         <section
-            className=" p-[1rem] md:px-[6rem] lg:py-[2rem] lg:px-[4rem]"
+            className=" p-[1rem] md:px-[2rem] lg:py-[2rem] lg:px-[4rem]"
         >
             <div>
                 {filteredNews&&
@@ -33,12 +36,14 @@ export default function TechnologyDetail({params}:{params:Promise<{politicsId: s
                         time={filteredNews!.pubDate}
                         link={filteredNews!.link}
                         content={filteredNews?.description}
+                        pathname={pathname}
+                        baseURL={baseURL}
                     />
                 }
             </div>
                     
             <div
-                className="md:w-[67%] lg:w-[64%] mx-auto mb-4"
+                className="md:w-[80%] lg:w-[72%] md:ml-[20%] lg:ml-[18%] mb-4"
             >
                 <h3
                     className="capitalize text-2xl mb-4"
