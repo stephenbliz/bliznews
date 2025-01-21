@@ -1,6 +1,7 @@
 'use client';
 import { useFetchPoliticsContext } from "@/app/context/fetchPolitics";
 import { use } from "react";
+import Head from "next/head";
 import { usePathname } from "next/navigation";
 import NewsCard from "@/app/Component/newsCard";
 import NewsDetail from "@/app/Component/newDetail";
@@ -22,6 +23,14 @@ export default function TechnologyDetail({params}:{params:Promise<{politicsId: s
     })
 
     return(
+        <>
+        <Head>
+            <title>{filteredNews?.title}</title>
+            <meta property="og:title" content={filteredNews?.title} />
+            <meta property="og:url" content={`${baseURL}${pathname}`} />
+            <meta property="og:description" content={filteredNews?.description} />
+            <meta property="og:image" content={`${filteredNews?.image_url}`} />
+        </Head>
         <section
             className=" p-[1rem] md:px-[2rem] lg:py-[2rem] lg:px-[4rem]"
         >
@@ -70,5 +79,6 @@ export default function TechnologyDetail({params}:{params:Promise<{politicsId: s
                 </div>
             </div>
         </section>
+        </>
     )
 }

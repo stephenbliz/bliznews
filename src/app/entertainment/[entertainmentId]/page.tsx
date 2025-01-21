@@ -1,6 +1,7 @@
 'use client';
 import { useFetchEntertainmentContext } from "@/app/context/fetchEntertainment";
 import { use } from "react";
+import Head from "next/head";
 import { usePathname } from "next/navigation";
 import NewsDetail from "@/app/Component/newDetail";
 import NewsCard from "@/app/Component/newsCard";
@@ -24,6 +25,14 @@ export default function EntertainmentDetail({params}:{params:Promise<{entertainm
     })
     
     return(  
+        <>
+        <Head>
+            <title>{filteredNews?.title}</title>
+            <meta property="og:title" content={filteredNews?.title} />
+            <meta property="og:url" content={`${baseURL}${pathname}`} />
+            <meta property="og:description" content={filteredNews?.description} />
+            <meta property="og:image" content={`${filteredNews?.image_url}`} />
+        </Head>
         <section
             className=" p-[1rem] md:px-[2rem] lg:py-[2rem] lg:px-[4rem]"
         >
@@ -72,5 +81,6 @@ export default function EntertainmentDetail({params}:{params:Promise<{entertainm
                 </div>
             </div>
         </section>
+        </>
     )
 }

@@ -2,6 +2,7 @@
 import { useFetchAllContext } from "@/app/context/fetchAll";
 import NewsDetail from "../../Component/newDetail";
 import { use } from "react";
+import Head from "next/head";
 import NewsCard from "../../Component/newsCard";
 import { usePathname } from "next/navigation";
 import { useFetchTrendingContext } from "@/app/context/fetchTrending";
@@ -30,6 +31,25 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
     })
    
     return(
+        <>
+        {
+            filteredNews?
+            <Head>
+                <title>{filteredNews?.title}</title>
+                <meta property="og:title" content={filteredNews?.title} />
+                <meta property="og:url" content={`${baseURL}${pathname}`} />
+                <meta property="og:description" content={filteredNews?.description} />
+                <meta property="og:image" content={`${filteredNews?.image_url}`} />
+            </Head>
+            :
+            <Head>
+            <title>{filteredNews2?.title}</title>
+                <meta property="og:title" content={filteredNews2?.title} />
+                <meta property="og:url" content={`${baseURL}${pathname}`} />
+                <meta property="og:description" content={filteredNews2?.excerpt} />
+                <meta property="og:image" content={`${filteredNews2?.thumbnail}`} />
+            </Head>
+        }
         <section
             className=" p-[1rem] md:px-[2rem] lg:py-[2rem] lg:px-[4rem]"
         >
@@ -103,5 +123,6 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                 </div> 
             } */}
         </section>
+        </>
     )
 }
