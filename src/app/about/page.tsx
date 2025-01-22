@@ -143,7 +143,7 @@ export default function About(){
                     <address
                         className="mb-2"
                     >
-                        1639 H Street Northwest, Washington, District of Columbia
+                        1639 H Street Northwest, Washington, District of Columbia
                     </address>
                     <div
                         className="mb-2"

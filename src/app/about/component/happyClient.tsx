@@ -32,9 +32,9 @@ export default function HappyClients(){
             >
                 I confess, however, that it took all my professional 
                 discipline to resist squandering the time I spent with
-                 De Niro on a recent Saturday afternoon in a slack-jawed 
+                 De Niro on a recent Saturday afternoon in a slack jawed 
                  fanboy recitation of his greatest hits. Oh, my God, you are 
-                 Jake LaMotta! You are Johnny Boy! You are Travis Bickle! I'm talking to you.
+                 Jake LaMotta You are Johnny Boy You are Travis Bickle I am talking to you.
             </p>
             <p
                 className="mb-4"
@@ -45,13 +45,12 @@ export default function HappyClients(){
                 mistake, because you make them by default.
             </p>
             <p
-                className=""
             >
                 To the younger generation, though, he is most recognizably 
-                Jack Byrnes, Ben Stiller's impossible father-in-law in the 
+                Jack Byrnes, Ben Stillers impossible father in law in the 
                 Fockers franchise. And as the reliable heavy in a steady stream 
                 of action movies and crime dramas, some but not all of them 
-                quite good. It has become fashionable to suggest that De Niro's 
+                quite good. It has become fashionable to suggest that De Niros 
                 best work is behind him. But nostalgia is a vice, and a survey 
                 of the last four decades of movie history reveals that De Niro 
                 has never slackened, diminished or gone away but has rather, year 

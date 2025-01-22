@@ -20,11 +20,11 @@ export default function JobsCareer(){
                 To be a movie-besotted adolescent in the 70s and early 80s 
                 was to experience, in real time and at an impressionable age, 
                 performances that would go on to become icons and monuments. 
-                This kid doesn't just act — he takes off into the vapors, 
+                This kid doesnt just act he takes off into the vapors, 
                 wrote Pauline Kael in her review of Mean Streets. Not that 
                 there was anything airy or abstract about what he was doing, 
-                which was transforming himself — physically, vocally, 
-                psychologically — with each new role. And in the process, 
+                which was transforming himself physically, vocally, 
+                psychologically with each new role. And in the process, 
                 before our eyes, reinventing the art of acting.
             </p>
         </section>
