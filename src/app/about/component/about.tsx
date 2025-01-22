@@ -12,7 +12,7 @@ export default function AboutTab(){
                 className="mb-4"
             >
                 I think your best bet would be to start or join a startup. 
-                That's been a reliable way to get rich for hundreds of years.
+                That is been a reliable way to get rich for hundreds of years.
                 The word startup dates from the 1960s, but what happens in 
                 one is very similar.
             </p>

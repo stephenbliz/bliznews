@@ -33,7 +33,7 @@ export default function Policy(){
                 I confess, however, that it took all my professional discipline 
                 to resist squandering the time I spent with De Niro on a recent 
                 Saturday afternoon in a slackjawed fanboy recitation of his 
-                greatest hits. Oh, my God, you are Jake LaMotta You're Johnny 
+                greatest hits. Oh, my God, you are Jake LaMotta You are Johnny 
                 Boy You are Travis Bickle I am talking to you.
             </p>
             <p
