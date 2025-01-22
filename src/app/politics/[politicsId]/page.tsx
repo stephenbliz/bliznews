@@ -2,13 +2,14 @@
 import { useFetchPoliticsContext } from "@/app/context/fetchPolitics";
 import { use } from "react";
 import Head from "next/head";
+import Loading from "@/app/Component/loading";
 import { usePathname } from "next/navigation";
 import NewsCard from "@/app/Component/newsCard";
 import NewsDetail from "@/app/Component/newDetail";
 
 export default function TechnologyDetail({params}:{params:Promise<{politicsId: string}>}){
     const {politicsId} = use(params);
-    const {news} = useFetchPoliticsContext();
+    const {news, loading, error} = useFetchPoliticsContext();
     const pathname = usePathname();
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https:localhost:3000';
     const slugify = (title:string) => {
@@ -49,6 +50,8 @@ export default function TechnologyDetail({params}:{params:Promise<{politicsId: s
                         baseURL={baseURL}
                     />
                 }
+                {loading && <Loading />}
+                {error && <div>{error}</div>}
             </div>
                     
             <div

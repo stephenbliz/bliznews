@@ -2,13 +2,14 @@
 import { useFetchSportsContext } from "@/app/context/fetchSports";
 import { use } from "react";
 import Head from "next/head";
+import Loading from "@/app/Component/loading";
 import { usePathname } from "next/navigation";
 import NewsCard from "@/app/Component/newsCard";
 import NewsDetail from "@/app/Component/newDetail";
 
 export default function SportsDetail({params}:{params:Promise<{sportsId: string}>}){
     const {sportsId} = use(params);
-    const {news} = useFetchSportsContext();
+    const {news, loading, error} = useFetchSportsContext();
     const pathname = usePathname();
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https:localhost:3000';
     const slugify = (title:string) => {
@@ -49,6 +50,8 @@ export default function SportsDetail({params}:{params:Promise<{sportsId: string}
                         pathname={pathname}
                     />
                 }
+                {loading && <Loading />}
+                {error && <div>{error}</div>}
             </div>
                     
             <div

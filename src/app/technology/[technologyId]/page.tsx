@@ -2,13 +2,14 @@
 import { useFetchTechnologyContext } from "@/app/context/fetchTechnology";
 import { use } from "react";
 import Head from "next/head";
+import Loading from "@/app/Component/loading";
 import { usePathname } from "next/navigation";
 import NewsCard from "@/app/Component/newsCard";
 import NewsDetail from "@/app/Component/newDetail";
 
 export default function TechnologyDetail({params}:{params:Promise<{technologyId: string}>}){
     const {technologyId} = use(params);
-    const {news} = useFetchTechnologyContext();
+    const {news, loading, error} = useFetchTechnologyContext();
     const pathname = usePathname();
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https:localhost:3000';
     const slugify = (title:string) => {
@@ -48,6 +49,16 @@ export default function TechnologyDetail({params}:{params:Promise<{technologyId:
                         pathname={pathname}
                         baseURL={baseURL}
                     />
+                }
+                {loading &&
+                    <div>
+                        <Loading />
+                    </div> 
+                }
+                {error &&
+                    <div>
+                        {error}
+                    </div> 
                 }
             </div>
                     

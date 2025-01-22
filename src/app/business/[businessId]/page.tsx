@@ -5,10 +5,11 @@ import Head from "next/head";
 import { usePathname } from "next/navigation";
 import NewsCard from "@/app/Component/newsCard";
 import NewsDetail from "@/app/Component/newDetail";
+import Loading from "@/app/Component/loading";
 
 export default function BusinessDetail({params}:{params:Promise<{businessId: string}>}){
     const {businessId} = use(params);
-    const {news} = useFetchBusinessContext();
+    const {news, loading, error} = useFetchBusinessContext();
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https://localhost:3000';
     const pathname = usePathname();
     const slugify = (title:string) => {
@@ -49,6 +50,8 @@ export default function BusinessDetail({params}:{params:Promise<{businessId: str
                         baseURL={baseURL}
                     />
                 }
+                {loading && <Loading />}
+                {error && <div>{error}</div>}
             </div>
                     
             <div

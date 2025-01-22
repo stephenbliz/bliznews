@@ -3,13 +3,14 @@ import { useFetchAllContext } from "@/app/context/fetchAll";
 import NewsDetail from "../../Component/newDetail";
 import { use } from "react";
 import Head from "next/head";
+import Loading from "@/app/Component/loading";
 import NewsCard from "../../Component/newsCard";
 import { usePathname } from "next/navigation";
 import { useFetchTrendingContext } from "@/app/context/fetchTrending";
 
 export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
-    const {news} = useFetchAllContext();
-    const {newsLatest} = useFetchTrendingContext()
+    const {news, loading, error} = useFetchAllContext();
+    const {newsLatest, loadingLatest, errorLatest} = useFetchTrendingContext()
 
     const {homeid} = use(params)
     const pathname = usePathname();
@@ -84,6 +85,26 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                         baseURL={baseURL}
                     />
                 }
+                {loading &&
+                    <div>
+                        <Loading />
+                    </div> 
+                }
+                {error &&
+                    <div>
+                        {error}
+                    </div> 
+                }
+                {loadingLatest &&
+                    <div>
+                        <Loading />
+                    </div> 
+                }
+                {errorLatest &&
+                    <div>
+                        {errorLatest}
+                    </div> 
+                }
             </div>
         
             <div
@@ -112,16 +133,7 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                     
                 </div>
             </div>
-            {/* {loading &&
-                <div>
-                    <Loading />
-                </div> 
-            }
-            {error &&
-                <div>
-                    {error}
-                </div> 
-            } */}
+            
         </section>
         </>
     )
