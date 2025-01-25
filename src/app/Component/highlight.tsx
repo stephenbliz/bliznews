@@ -20,7 +20,7 @@ export default function Highlights({news}:highLightProp){
             viewport={{once: true}}
           >
             <h1
-              className="text-2xl font-bold capitalize mb-8 text-secondaryColor-300"
+              className="text-xl font-heading md:text-2xl font-bold capitalize mb-8 text-secondaryColor-300"
             >
               highlights
             </h1>

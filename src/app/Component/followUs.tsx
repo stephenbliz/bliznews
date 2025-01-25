@@ -26,7 +26,7 @@ export default function FollowUs(){
             viewport={{once: true}}
         >
             <h1
-                className={`text-2xl text-secondaryColor-300 font-bold capitalize mb-8 `}
+                className={`text-xl font-heading md:text-2xl text-secondaryColor-300 font-bold capitalize mb-8 `}
             >
                 follow us
             </h1>

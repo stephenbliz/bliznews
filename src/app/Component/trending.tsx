@@ -24,7 +24,7 @@ export default function TrendingNews({news}:trendingNewsProp){
             viewport={{once: true}}
         >
             <h1
-                className={`text-2xl text-secondaryColor-300 font-bold capitalize mb-4 `}
+                className={`text-xl font-heading md:text-2xl text-secondaryColor-300 font-bold capitalize mb-4 `}
             >
                 trending USA
             </h1>
@@ -55,7 +55,7 @@ export default function TrendingNews({news}:trendingNewsProp){
                                 {dayjs(item.date).fromNow()}
                             </span>
                             <h1
-                                className="font-bold mb-2 text-[1rem] hover:text-primaryColor transition duration-300 ease-linear"
+                                className="font-bold font-heading mb-2 text-[1rem] hover:text-primaryColor transition duration-300 ease-linear"
                             >
                                 <Link
                                     href={`/news/${slugify(item.title)}`}

@@ -20,7 +20,7 @@ export default function EditorPick ({news}:editorsPickProp){
             viewport={{once: true}}
           >
             <h1
-              className="text-2xl font-bold capitalize mb-8 text-secondaryColor-300"
+              className="text-xl md:text-2xl font-heading font-bold capitalize mb-8 text-secondaryColor-300"
             >
               editors pick
             </h1>

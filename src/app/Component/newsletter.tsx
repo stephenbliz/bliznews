@@ -15,7 +15,7 @@ export default function NewsLetter(){
             viewport={{once: true}}
         >
             <h1
-                className={`text-2xl text-primaryColor text-center font-bold capitalize mb-4 `}
+                className={`text-xl md:text-2xl text-primaryColor text-center font-heading font-bold capitalize mb-4 `}
             >
                 bliznews newsletter
             </h1>

@@ -47,10 +47,10 @@ export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
 
     return(
         <div
-            className={`${openMenu? 'block':'hidden'} absolute z-50 lg:hidden w-[100%] top-[7rem] left-0 animate-pull-down`}
+            className={`${openMenu? 'block':'hidden'} absolute z-50 lg:hidden w-[100%] top-[5rem] left-0 animate-pull-down`}
         >
             <div
-                className="text-center capitalize text-2xl text-white flex flex-col items-center justify-between"
+                className="text-center capitalize text-xl text-white flex flex-col items-center justify-between"
             >
                 <Link
                     className={`${pathname === '/'? 'text-primaryColor' : 'text-white'} bg-[#060505f6] border-b border-[#b0acac35] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
@@ -85,7 +85,7 @@ export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
                     {
                         categories.map((category)=>(
                             <Link
-                                className={`${pathname === category.link ? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac20] w-full block py-[1.4rem] h-full hover:text-primaryColor transition duration-300 ease-in-out`}
+                                className={`${pathname === category.link ? 'text-primaryColor' : 'text-white'} bg-[#060505c5] border-b border-[#b0acac20] w-full block py-[1.4rem] h-full text-[1rem] hover:text-primaryColor transition duration-300 ease-in-out`}
                                 href={category.link}
                                 key={category.id}
                                 onClick={handleCloseMenu}

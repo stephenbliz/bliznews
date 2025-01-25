@@ -2,7 +2,7 @@ export default function JobsCareer(){
     return(
         <section>
             <h1
-                className="capitalize font-bold text-[2rem] mb-4"
+                className="capitalize font-heading font-bold text-[1.5rem] md:text-[2rem] mb-4"
             >
                 jobs and career
             </h1>

@@ -58,7 +58,7 @@ export default function TechnologyDetail({params}:{params:Promise<{politicsId: s
                 className="md:w-[80%] lg:w-[72%] md:ml-[20%] lg:ml-[18%] mb-4"
             >
                 <h3
-                    className="capitalize text-2xl mb-4"
+                    className="capitalize text-xl font-heading md:text-2xl mb-4"
                 >
                     read these next
                 </h3>

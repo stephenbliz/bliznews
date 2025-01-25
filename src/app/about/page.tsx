@@ -8,6 +8,7 @@ import HappyClients from "./component/happyClient";
 import Press from "./component/press";
 import JobsCareer from "./component/jobs&Career";
 import Policy from "./component/policy";
+import ContactTab from "../Component/contactTab";
 
 export default function About(){
     const [activeAboutLink, setActiveAboutLink] = useState('About us');
@@ -40,7 +41,7 @@ export default function About(){
             case 'Jobs & careers':
                 return <JobsCareer />
             case 'Contact':
-                return 'Contact';
+                return <ContactTab />
             case 'Policy':
                 return <Policy />
         }
@@ -78,7 +79,7 @@ export default function About(){
                     className="border text-md p-4 md:p-2 lg:p-6 mb-8 border-secondaryColor-100 rounded"
                 >
                     <h3
-                        className="capitalize font-bold mb-4"
+                        className="capitalize font-heading font-bold mb-4"
                     >
                         twitter feeds
                     </h3>
@@ -136,7 +137,7 @@ export default function About(){
                     className="border text-sm border-secondaryColor-100 rounded p-4 md:p-2 lg:p-4"
                 >
                     <h3
-                        className="capitalize text-[1rem] mb-2"
+                        className="capitalize font-heading text-[1rem] mb-2"
                     >
                         contact us
                     </h3>

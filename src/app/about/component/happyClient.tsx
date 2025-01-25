@@ -4,7 +4,7 @@ export default function HappyClients(){
     return(
         <section>
             <h1
-                className="capitalize font-bold text-[2rem] mb-4"
+                className="capitalize font-heading font-bold text-[1.5rem] md:text-[2rem] mb-4"
             >
                 happy client
             </h1>

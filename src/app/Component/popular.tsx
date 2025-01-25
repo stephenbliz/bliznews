@@ -24,7 +24,7 @@ export default function PopularPost ({
             viewport={{once: true}}
           >
             <h1
-              className={`text-2xl ${showLargeSide === false? 'text-primaryColor':'text-secondaryColor-300'} font-bold capitalize mb-8 `}
+              className={`text-xl font-heading md:text-2xl ${showLargeSide === false? 'text-primaryColor':'text-secondaryColor-300'} font-bold capitalize mb-8 `}
             >
               {headTitle}
             </h1>

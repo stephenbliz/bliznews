@@ -60,7 +60,7 @@ export default function NewsDetail({
                     </span>
                 </div>
                 <h1
-                    className="font-bold mb-4 text-2xl text-secondaryColor-300"
+                    className="font-bold font-heading mb-4 text-xl md:text-2xl text-secondaryColor-300"
                 >
                     {title}
                 </h1>

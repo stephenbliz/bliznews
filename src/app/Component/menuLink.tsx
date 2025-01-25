@@ -48,7 +48,7 @@ export default function MenuLinks(){
                     {
                         categories.map((category)=>(
                             <Link
-                                className={`${pathname === category.link ? 'text-primaryColor' : 'text-secondaryColor-300'} hover:text-primaryColor block text-lg py-2 border-b border-secondaryColor-100 transition duration-300 ease-linear`}
+                                className={`${pathname === category.link ? 'text-primaryColor' : 'text-secondaryColor-300'} hover:text-primaryColor block text-[1rem] py-2 border-b border-secondaryColor-100 transition duration-300 ease-linear`}
                                 href={category.link}
                                 key={category.id}
                             >

@@ -58,7 +58,7 @@ export default function BusinessDetail({params}:{params:Promise<{businessId: str
                 className="md:w-[80%] lg:w-[72%] md:ml-[20%] lg:ml-[18%] mb-4"
             >
                 <h3
-                    className="capitalize text-2xl mb-4"
+                    className="capitalize md:text-2xl text-xl font-heading mb-4"
                 >
                     read these next
                 </h3>

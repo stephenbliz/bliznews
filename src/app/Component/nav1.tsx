@@ -33,7 +33,7 @@ export default function Nav1(){
 
     return(
         <nav
-            className="h-[7rem] relative lg:h[5rem] bg-primaryColor px-[1rem] text-white md:px-[4rem] flex items-center justify-between"
+            className="h-[5rem] relative bg-primaryColor px-[1rem] text-white md:px-[4rem] flex items-center justify-between"
         >
             <div
                 className="flex items-center gap-3 w-[45%]"
@@ -43,12 +43,12 @@ export default function Nav1(){
                     className="w-fit flex items-center gap-2"
                 >
                     <span
-                        className="text-[3rem] rotate-[45deg]"
+                        className="text-[2rem] md:text-[3rem] rotate-[45deg]"
                     >
                         <HiOutlineNewspaper />
                     </span>
                     <span
-                        className="text-[1.5rem] spacing tracking-[.5rem] font-bold"
+                        className="text-[1.3rem]  md:text-[1.5rem] spacing tracking-[.5rem] font-bold"
                     >
                         BLIZNEWS
                     </span>
@@ -118,7 +118,7 @@ export default function Nav1(){
                 </span>
             </div>
             <div
-                className="block lg:hidden w-fit text-center text-[3rem]"
+                className="block lg:hidden w-fit text-center text-[2rem]"
                 onClick={handleOpenMenu}
             >
                 {openMenu === false ? <RiMenu2Line /> : <IoClose />}

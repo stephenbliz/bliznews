@@ -65,7 +65,7 @@ export default function Footer(){
                     </p>
                     <div>
                         <h3
-                            className="text-white font-bold capitalize mb-4"
+                            className="text-white font-heading font-bold capitalize mb-4"
                         >
                             follow us
                         </h3>
@@ -109,7 +109,7 @@ export default function Footer(){
                         className="w-[100%] lg:w-[45%] mb-8 lg:mb-0"
                     >
                         <h3
-                            className="text-white font-bold capitalize mb-4"
+                            className="text-white font-heading font-bold capitalize mb-4"
                         >
                             main
                         </h3>
@@ -133,7 +133,7 @@ export default function Footer(){
                         className="w-[100%] lg:w-[45%] mb-4 lg:mb-0"
                     >
                         <h3
-                            className="text-white font-bold capitalize mb-4"
+                            className="text-white font-heading font-bold capitalize mb-4"
                         >
                             about us
                         </h3>

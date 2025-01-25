@@ -111,7 +111,7 @@ export default function HomeDetail({params}:{params:Promise<{homeid: string}>}){
                 className="md:w-[80%] lg:w-[72%] md:ml-[20%] lg:ml-[18%] mb-4"
             >
                 <h3
-                    className="capitalize text-2xl mb-4"
+                    className="capitalize font-heading text-xl md:text-2xl mb-4"
                 >
                     read these next
                 </h3>

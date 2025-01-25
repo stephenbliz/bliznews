@@ -19,7 +19,8 @@ export default {
         },
       },
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif']
+        body: ['var(--roboto-font)', 'sans-serif'],
+        heading: ['var(--oswald-font)', 'sans-serif']
       },
       animation: {
         'slide-in': 'slideIn 0.3s ease-in-out',

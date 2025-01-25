@@ -13,7 +13,7 @@ export default function Comment(){
     return(
         <div>
         <h3
-            className="mb-4 text-2xl capitalize"
+            className="mb-4 font-heading text-xl md:text-2xl capitalize"
         >
             {comments.length} comments
         </h3>

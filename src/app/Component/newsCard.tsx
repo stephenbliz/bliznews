@@ -21,7 +21,7 @@ export default function NewsCard({
     descWidth="w-[100%]", 
     showTitle= true, 
     showAuthor=true,
-    titleFont = 'text-lg'
+    titleFont = 'text-[1rem] md:text-lg'
 }:newsCardProp){
 
     const slugify = (title: string) => {
@@ -59,7 +59,7 @@ export default function NewsCard({
                 }
                 {showTitle &&
                     <h1
-                        className={`mb-2 capitalize ${titleFont} font-bold hover:text-primaryColor transition duration-300 ease-linear`}
+                        className={`mb-2 capitalize ${titleFont} font-heading font-bold hover:text-primaryColor transition duration-300 ease-linear`}
                     >
                         <Link
                             href={`${path}/${slugify(news.title)}`}

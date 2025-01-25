@@ -29,7 +29,7 @@ export default function RecentPost({news, loading}: RecentPostProp){
                 :
                 <div>
                     <h1
-                        className={`text-2xl text-primaryColor font-bold capitalize mb-4 `}
+                        className={`text-xl font-heading md:text-2xl text-primaryColor font-bold capitalize mb-4 `}
                     >
                         recent post
                     </h1>
