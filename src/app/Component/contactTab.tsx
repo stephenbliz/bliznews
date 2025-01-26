@@ -42,7 +42,7 @@ export default function ContactTab(){
                     
                 >
                     <div
-                        className="flex flex-wrap gap-[4%] gap-y-1 items-center"
+                        className="flex flex-wrap gap-[4%] gap-y-1 items-center mb-4"
                     >
                         <div
                             className="w-[48%] relative"
@@ -144,7 +144,12 @@ export default function ContactTab(){
                             }
                         </div>
                     </div>
-                    
+                    <button
+                        type="submit"
+                        className="capitalize py-2 px-4 text-white bg-primaryColor rounded"
+                    >
+                        submit
+                    </button>
                 </form>
             </div>
             <div
