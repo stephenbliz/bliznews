@@ -30,7 +30,7 @@ export default function ContactTab(){
             className="md:grid grid-cols-7 items-start gap-[5rem]"
         >
             <div
-                className="md:col-span-5"
+                className="md:col-span-5 mb-6 md:mb-0"
             >
                 <h3
                     className="capitalize font-heading text-[1rem] md:text-xl mb-6"
@@ -150,7 +150,78 @@ export default function ContactTab(){
             <div
                 className="md:col-span-2"
             >
-                Small section
+                 <h3
+                    className="capitalize font-heading text-[1rem] md:text-xl mb-6"
+                >
+                    contacts
+                </h3>
+                <div
+                    className="mb-4"
+                >
+                    <span
+                        className="block mb-2 capitalize"
+                    >
+                        main office:
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Address: 1600 Pennsylvania Ave NW, Washington, DC 20500
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Phone: +990 312 123 45 67
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Email: hello@domain.com
+                    </span>
+                </div>
+                <div
+                    className="mb-4"
+                >
+                    <span
+                        className="block mb-2 capitalize"
+                    >
+                        secondary office:
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Address: 1600 Pennsylvania Ave NW, Washington, DC 20500
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Phone: +990 312 123 45 67
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Email: hello@domain.com
+                    </span>
+                </div>
+                <div
+                    className="mb-4"
+                >
+                    <span
+                        className="block mb-2 capitalize"
+                    >
+                        business hours:
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Monday - Friday: 08:00 - 17:59
+                    </span>
+                    <span
+                        className="block mb-2 text-secondaryColor-100"
+                    >
+                        Saturday - Sunday: 09:00 - 13:59
+                    </span>
+                </div>
             </div>
         </div>
     )
