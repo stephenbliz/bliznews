@@ -19,6 +19,7 @@ export default function FetchSearchContextProvider ({children}:{children: React.
             setLoading(false)
         }catch(error){
             setError('Could not fetch the resource')
+            console.log(error);
         }finally{
             setLoading(false)
         }

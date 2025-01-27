@@ -6,6 +6,7 @@ import { FaTwitter } from "react-icons/fa";
 import { TfiGoogle } from "react-icons/tfi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { CSSProperties, useState } from 'react';
 
@@ -16,6 +17,7 @@ interface mobileMenuProp{
 
 export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
     const pathname = usePathname();
+    const router = useRouter();
     const [drop, setDrop] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
     const [search, setSearch] = useState('');
@@ -44,7 +46,18 @@ export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
     const handleCloseMenu = () =>{
         setOpenMenu(false)
     }
-
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault()
+        if(search.trim()){
+            router.push(`/search?q=${search}`);
+            setSearch('');
+            setOpenMenu(false)
+            console.log('Search submitted:', search);
+        }else{
+            console.log('Insert a search parameter');
+        }
+        
+    }    
     return(
         <div
             className={`${openMenu? 'block':'hidden'} absolute z-50 lg:hidden w-[100%] top-[5rem] left-0 animate-pull-down`}
@@ -102,8 +115,9 @@ export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
                 >
                     contact
                 </Link>
-                <div
+                <form
                     className={`flex items-center justify-center gap-2 border-b border-[#b0acac25] bg-[#060505f6] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
+                    onSubmit={handleSearch}
                 >
                     <label 
                         htmlFor="search"
@@ -121,7 +135,7 @@ export default function MobileMenu({openMenu, setOpenMenu}:mobileMenuProp){
                         onChange={(e)=>setSearch(e.target.value)} 
                     />
                   
-                </div>
+                </form>
                 <div
                     className={`flex items-center justify-center gap-2 border-b border-[#b0acac25] bg-[#060505f6] w-full py-[1.4rem] h-full transition duration-300 ease-in-out`}
                 >
