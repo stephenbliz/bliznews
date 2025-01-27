@@ -10,6 +10,7 @@ import FetchTechnologyContextProvider from "./context/fetchTechnology";
 import FetchPoliticsContextProvider from "./context/fetchPolitics";
 import FetchSportsContextProvider from "./context/fetchSports";
 import FetchBusinessContextProvider from "./context/fetchBusiness";
+import FetchSearchContextProvider from "./context/fetchSearch";
 
 export const metadata: Metadata = {
   title: "Bliznews",
@@ -46,7 +47,9 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
                   <FetchPoliticsContextProvider>
                     <FetchSportsContextProvider>
                       <FetchBusinessContextProvider>
-                        {children}
+                        <FetchSearchContextProvider>
+                          {children}
+                        </FetchSearchContextProvider>
                       </FetchBusinessContextProvider>
                     </FetchSportsContextProvider>
                   </FetchPoliticsContextProvider>

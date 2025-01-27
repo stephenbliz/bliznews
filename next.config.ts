@@ -7,8 +7,14 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'http',
+        hostname: 's.espncdn.com',
+        pathname: '/stitcher/**', // Example: Specific path on this domain
+      },
+      {
         protocol: 'https',
         hostname: '**', // Match all hostnames
+        pathname: '/**'
       },
     ],
   },

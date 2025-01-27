@@ -42,7 +42,7 @@ export default function ContactTab(){
                     
                 >
                     <div
-                        className="flex flex-wrap gap-[4%] gap-y-1 items-center mb-4"
+                        className="flex flex-wrap gap-[4%] gap-y-1 items-center mb-2"
                     >
                         <div
                             className="w-[48%] relative"

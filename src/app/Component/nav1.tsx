@@ -11,13 +11,16 @@ import { FaTwitter } from "react-icons/fa";
 import { TfiGoogle } from "react-icons/tfi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import MobileMenu from "./mobileMenu";
 
 
 export default function Nav1(){
     const [search, setSearch] = useState('');
+    // const [isEmpty, setIsEmpty] = useState(false);
     const [openMenu, setOpenMenu] = useState<boolean>(false);
+    const router = useRouter();
 
     const medias = [
             {title: 'Follow us on Facebook', icon: <FaFacebookF />, colour: `#1773EA`, id: 1},
@@ -29,6 +32,17 @@ export default function Nav1(){
 
     const handleOpenMenu = ()=>{
         setOpenMenu(!openMenu);
+    }
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault()
+        if(search.trim()){
+            router.push(`/search?q=${search}`);
+            setSearch('');
+            console.log('Search submitted:', search);
+        }else{
+            console.log('Insert a search parameter');
+        }
+        
     }
 
     return(
@@ -100,8 +114,9 @@ export default function Nav1(){
                     </div>
                 </div>
             </div>
-            <div
+            <form
                 className="w-[45%] hidden lg:flex justify-end relative"
+                onSubmit={handleSearch}
             >
                 <input 
                     type="text" 
@@ -111,12 +126,20 @@ export default function Nav1(){
                     onChange={(e)=>setSearch(e.target.value)}
                     className="h-[2rem] placeholder:text-gray-300 pl-2 pr-[2.5rem] py-2 rounded w-[60%] outline-none text-gray-600 border border-gray-300 focus:border-gray-400"
                 />
-                <span
+                <button
                     className="absolute right-2 top-1 text-2xl cursor-pointer text-gray-400 hover:text-gray-800 transition duration-300 ease-in-out"
+                    type="submit"
                 >
                     <IoSearch />
-                </span>
-            </div>
+                </button>
+                {/* {isEmpty && 
+                    <div
+                        className="text-sm absolute -bottom-2 right-0 text-white w-full"
+                    >
+                        Insert a search parameter
+                    </div>
+                } */}
+            </form>
             <div
                 className="block lg:hidden w-fit text-center text-[2rem]"
                 onClick={handleOpenMenu}

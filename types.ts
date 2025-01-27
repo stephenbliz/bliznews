@@ -130,6 +130,12 @@ export interface fetchBusinessContextProp{
     error: string
     fetchBusiness: () => void
 }
+export interface fetchSearchContextProp{
+    news: newsProp[] | null
+    loading: boolean
+    error: string
+    fetchSearch: (query: string) => void
+}
 export interface fetchTrendingContextProp{
     newsLatest: newsLatestProp[]
     loadingLatest: boolean
