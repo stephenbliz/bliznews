@@ -25,7 +25,7 @@ function SearchContent() {
 
     return (
         <div className="col-span-2">
-            {news?.length!>0? (
+            {news!.length>0? (
                 <div>
                     {news?.map((n) => (
                         <NewsCard
