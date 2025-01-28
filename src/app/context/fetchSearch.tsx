@@ -15,10 +15,14 @@ export default function FetchSearchContextProvider ({children}:{children: React.
         try{
             const res = await fetch(`https://newsdata.io/api/1/latest?apikey=${apiKey}&qInMeta=${query}&language=en`);
             const data = await res.json();
+            if(!data.results){
+                // throw new Error('Rate limit exceeded');
+                setError('Rate limit exceede');
+            }
             setNews(data.results);
             setLoading(false)
         }catch(error){
-            setError('Could not fetch the resource')
+            setError('Rate limit exceeded')
             console.log(error);
         }finally{
             setLoading(false)
