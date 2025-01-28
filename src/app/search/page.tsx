@@ -25,9 +25,9 @@ function SearchContent() {
 
     return (
         <div className="col-span-2">
-            {news && (
+            {news!.length>0? (
                 <div>
-                    {news.map((n) => (
+                    {news?.map((n) => (
                         <NewsCard
                             key={n.article_id}
                             news={n}
@@ -35,11 +35,11 @@ function SearchContent() {
                             titleFont="text-[1rem]"
                             imageWidth="md:w-[65%]"
                             descWidth="md:w-[33%]"
-                            path="/politics"
+                            path="/search"
                         />
                     ))}
                 </div>
-            )}
+            ):(<div className="text-2xl text-center mb-8">No news found...</div>)}
             {loading && (
                 <div>
                     <Loading />
