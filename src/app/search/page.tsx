@@ -4,12 +4,13 @@ import NewsCard from "../Component/newsCard";
 import PopularPost from "../Component/popular";
 import Advertisement from "../Component/advertisement";
 import FollowUs from "../Component/followUs";
-import { Suspense } from "react";
 import NewsLetter from "../Component/newsletter";
 import { useSearchParams } from "next/navigation";
 import { useFetchSearchContext } from "../context/fetchSearch";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useFetchAllContext } from "../context/fetchAll";
+
+export const dynamic = 'force-dynamic';
 
 export default function Search(){
     const searchParams = useSearchParams();
