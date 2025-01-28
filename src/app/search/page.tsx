@@ -4,6 +4,7 @@ import NewsCard from "../Component/newsCard";
 import PopularPost from "../Component/popular";
 import Advertisement from "../Component/advertisement";
 import FollowUs from "../Component/followUs";
+import { Suspense } from "react";
 import NewsLetter from "../Component/newsletter";
 import { useSearchParams } from "next/navigation";
 import { useFetchSearchContext } from "../context/fetchSearch";
@@ -24,6 +25,9 @@ export default function Search(){
     }, [query])
 
     return(
+        <Suspense
+            fallback={<Loading />}
+        >
         <section
             className=" p-[1rem] md:px-[6rem] lg:py-[2rem] lg:px-[4rem] lg:grid grid-cols-3 items-start gap-6"
         >
@@ -85,5 +89,6 @@ export default function Search(){
             </div>
 
         </section>
+        </Suspense>
     )
 }
