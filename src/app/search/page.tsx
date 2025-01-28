@@ -26,12 +26,13 @@ export default function Search(){
     }, [query])
 
     return(
-        <Suspense
-            fallback={<Loading />}
-        >
+        
         <section
             className=" p-[1rem] md:px-[6rem] lg:py-[2rem] lg:px-[4rem] lg:grid grid-cols-3 items-start gap-6"
         >
+            <Suspense
+                fallback={<Loading />}
+            >
             <div
                 className="col-span-2"
             >
@@ -63,6 +64,7 @@ export default function Search(){
                     </div> 
                 }
             </div>
+            </Suspense>
             <div
                 className="col-span-1"
             >
@@ -90,6 +92,5 @@ export default function Search(){
             </div>
 
         </section>
-        </Suspense>
     )
 }
