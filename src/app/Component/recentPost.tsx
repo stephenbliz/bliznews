@@ -43,7 +43,7 @@ export default function RecentPost({news, loading}: RecentPostProp){
                                     key={item.article_id}
                                 >
                                     <Link
-                                        href={slugify(item.title)}
+                                        href={`/news/${slugify(item.title)}`}
                                         className=""
                                     >
                                         {item.description?.substring(0, 60)}...
